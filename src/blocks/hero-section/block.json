@@ -1,0 +1,99 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/hero-section",
+    "title": "Hero Section",
+    "category": "xgenious-ui",
+    "icon": "cover-image",
+    "description": "Full-width hero section with background image/video and call-to-action",
+    "keywords": ["hero", "banner", "header", "cover"],
+    "textdomain": "xgenious-ui-blocks",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Welcome to Our Website"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "We create amazing digital experiences"
+        },
+        "description": {
+            "type": "string",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        "backgroundImage": {
+            "type": "object",
+            "default": {}
+        },
+        "backgroundVideo": {
+            "type": "object",
+            "default": {}
+        },
+        "useVideo": {
+            "type": "boolean",
+            "default": false
+        },
+        "overlayColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "overlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "minHeight": {
+            "type": "number",
+            "default": 600
+        },
+        "contentAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "contentVerticalAlign": {
+            "type": "string",
+            "default": "center"
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Get Started"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonStyle": {
+            "type": "string",
+            "default": "primary"
+        },
+        "showButton": {
+            "type": "boolean",
+            "default": true
+        },
+        "animation": {
+            "type": "string",
+            "default": "fadeIn"
+        }
+    },
+    "example": {
+        "attributes": {
+            "title": "Welcome to Our Website",
+            "subtitle": "We create amazing experiences"
+        }
+    }
+}

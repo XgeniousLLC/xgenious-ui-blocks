@@ -1,0 +1,124 @@
+/**
+ * Tech Stack Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-tech-stack {
+    &.xg-tech-stack {
+        position: relative;
+        border: 2px dashed #ddd;
+
+        &::before {
+            content: 'Tech Stack - Add technologies below ↓';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .tech-stack-heading {
+            min-height: 30px;
+            outline: 1px dashed transparent;
+            transition: all 0.2s;
+
+            &:hover,
+            &:focus {
+                outline-color: #007cba;
+                background: rgba(0, 124, 186, 0.05);
+            }
+        }
+
+        .tech-item {
+            position: relative;
+
+            &:hover {
+                .remove-tech-btn {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .remove-tech-btn {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            z-index: 5;
+            min-width: auto;
+            padding: 4px 8px;
+            font-size: 14px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .tech-image-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .tech-image-actions {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                gap: 8px;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            &:hover .tech-image-actions {
+                opacity: 1;
+            }
+        }
+
+        .tech-image-placeholder {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.05);
+            border: 2px dashed rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.08);
+                border-color: rgba(0, 0, 0, 0.3);
+            }
+
+            .dashicon {
+                font-size: 32px;
+                width: 32px;
+                height: 32px;
+                color: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .tech-name-input .components-text-control__input {
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            padding: 6px 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .add-tech-wrapper {
+            text-align: center;
+            margin-top: 32px;
+        }
+    }
+}

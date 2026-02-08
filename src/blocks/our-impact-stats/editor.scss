@@ -1,0 +1,16 @@
+/**
+ * Our Impact Stats Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-our-impact-stats {
+	.impact-heading {
+		&:focus {
+			outline: 2px solid #007cba;
+			outline-offset: 4px;
+		}
+	}
+
+	.stat-card {
+		cursor: default;
+	}
+}

@@ -1,0 +1,165 @@
+/**
+ * Workflow Steps Block - Frontend Styles
+ */
+
+.xg-workflow-steps {
+    position: relative;
+
+    /* Full Width Option */
+    > div:not(.xg-container) {
+        padding-left: var(--xg-container-padding, 20px);
+        padding-right: var(--xg-container-padding, 20px);
+    }
+
+    /* Heading */
+    .workflow-heading {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 60px 0;
+        text-align: center;
+        font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+    }
+
+    /* Steps Grid */
+    .workflow-steps-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    &.columns-1 .workflow-steps-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    &.columns-2 .workflow-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.columns-3 .workflow-steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &.columns-4 .workflow-steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Workflow Step Card */
+    .workflow-step {
+        border-radius: 12px;
+        padding: 32px 24px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .step-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        display: block;
+    }
+
+    .step-title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin: 0 0 24px 0;
+        font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+    }
+
+    /* Features List */
+    .step-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .feature-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        color: white;
+        margin-top: 2px;
+    }
+
+    .feature-text {
+        flex: 1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        &.columns-3 .workflow-steps-grid,
+        &.columns-4 .workflow-steps-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .workflow-heading {
+            font-size: 40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 60px 0 !important;
+
+        .workflow-heading {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .workflow-steps-grid {
+            gap: 20px;
+            grid-template-columns: 1fr !important;
+        }
+
+        .workflow-step {
+            padding: 24px 20px;
+        }
+
+        .step-title {
+            font-size: 20px;
+        }
+
+        .feature-item {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .workflow-heading {
+            font-size: 28px;
+        }
+
+        .step-title {
+            font-size: 18px;
+        }
+
+        .step-label {
+            font-size: 10px;
+        }
+    }
+}

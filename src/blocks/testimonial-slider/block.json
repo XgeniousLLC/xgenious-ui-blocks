@@ -1,0 +1,98 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/testimonial-slider",
+    "title": "Testimonial Slider",
+    "category": "xgenious-ui",
+    "icon": "format-quote",
+    "description": "Display testimonials in a slider with optional video support",
+    "keywords": ["testimonial", "slider", "carousel", "review", "feedback", "video"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Where Feedback Meets Excellence"
+        },
+        "testimonials": {
+            "type": "array",
+            "default": [
+                {
+                    "quote": "We explore user behavior and Motivations design meaningful Digital experiences built around Genuine user insights.",
+                    "authorName": "Austin Harlan",
+                    "authorPosition": "Founder & CEO",
+                    "authorImage": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    },
+                    "hasVideo": true,
+                    "videoUrl": ""
+                },
+                {
+                    "quote": "We explore user behavior and Motivations design meaningful Digital experiences built around Genuine user insights.",
+                    "authorName": "Austin Harlan",
+                    "authorPosition": "Founder & CEO",
+                    "authorImage": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    },
+                    "hasVideo": true,
+                    "videoUrl": ""
+                }
+            ]
+        },
+        "slidesPerView": {
+            "type": "number",
+            "default": 2
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "cardBackgroundColor": {
+            "type": "string",
+            "default": "#f5f5f5"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "headingColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "quoteIconColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "Where Feedback Meets Excellence"
+        }
+    }
+}

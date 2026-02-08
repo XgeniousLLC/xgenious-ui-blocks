@@ -1,0 +1,188 @@
+/**
+ * Call to Action Block - Frontend Styles
+ */
+
+.xg-cta-section {
+	position: relative;
+	margin: 40px 0;
+
+	/* Background Overlay */
+	.cta-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	/* Content Container */
+	.xg-container,
+	.cta-content-full {
+		position: relative;
+		z-index: 2;
+	}
+
+	.cta-content-full {
+		padding-left: var(--xg-container-padding, 20px);
+		padding-right: var(--xg-container-padding, 20px);
+	}
+
+	/* Content Layout */
+	.cta-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 60px;
+	}
+
+	.cta-text {
+		flex: 1;
+		max-width: 650px;
+	}
+
+	/* Heading */
+	.cta-heading {
+		font-size: 48px;
+		font-weight: 700;
+		line-height: 1.2;
+		margin: 0 0 24px 0;
+		font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+	}
+
+	/* Description */
+	.cta-description {
+		font-size: 18px;
+		line-height: 1.6;
+		margin: 0 0 32px 0;
+	}
+
+	/* Button */
+	.cta-button-wrapper {
+		display: inline-block;
+	}
+
+	.cta-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+		padding: 16px 32px;
+		border-radius: 50px;
+		font-size: 16px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		cursor: pointer;
+		border: none;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+		}
+
+		.button-arrow {
+			transition: transform 0.3s ease;
+		}
+
+		&:hover .button-arrow {
+			transform: translateX(4px);
+		}
+	}
+
+	/* Person Image */
+	.cta-person {
+		flex-shrink: 0;
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		overflow: hidden;
+		border: 4px dashed rgba(255, 255, 255, 0.3);
+		padding: 4px;
+		background: transparent;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+	}
+
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		.cta-heading {
+			font-size: 40px;
+		}
+
+		.cta-description {
+			font-size: 16px;
+		}
+
+		.cta-content {
+			gap: 40px;
+		}
+
+		.cta-person {
+			width: 180px;
+			height: 180px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.cta-content {
+			flex-direction: column;
+			text-align: center;
+			gap: 40px;
+		}
+
+		.cta-text {
+			max-width: 100%;
+		}
+
+		.cta-heading {
+			font-size: 32px;
+			margin-bottom: 16px;
+		}
+
+		.cta-description {
+			font-size: 15px;
+			margin-bottom: 24px;
+		}
+
+		.cta-button {
+			padding: 14px 28px;
+			font-size: 15px;
+		}
+
+		.cta-person {
+			width: 160px;
+			height: 160px;
+			order: -1;
+		}
+
+		.cta-button-wrapper {
+			display: block;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.cta-heading {
+			font-size: 28px;
+		}
+
+		.cta-description {
+			font-size: 14px;
+		}
+
+		.cta-button {
+			padding: 12px 24px;
+			font-size: 14px;
+		}
+
+		.cta-person {
+			width: 140px;
+			height: 140px;
+		}
+	}
+}

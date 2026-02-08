@@ -1,0 +1,180 @@
+/**
+ * Our Achievements Block - Frontend Styles
+ */
+
+.xg-achievements {
+	position: relative;
+	padding: 80px 0;
+	background: #f5f5f5;
+
+	/* Section Title */
+	.achievements-title {
+		font-size: 48px;
+		font-weight: 700;
+		line-height: 1.2;
+		margin: 0 0 60px;
+		color: #000000;
+		max-width: 750px;
+
+		@media (max-width: 1024px) {
+			font-size: 40px;
+			margin-bottom: 50px;
+		}
+
+		@media (max-width: 768px) {
+			font-size: 32px;
+			margin-bottom: 40px;
+		}
+
+		@media (max-width: 480px) {
+			font-size: 28px;
+			margin-bottom: 30px;
+		}
+	}
+
+	/* Achievements Grid */
+	.achievements-grid {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		flex-wrap: wrap;
+
+		@media (max-width: 1024px) {
+			gap: 16px;
+		}
+
+		@media (max-width: 768px) {
+			justify-content: center;
+		}
+	}
+
+	/* Achievement Card */
+	.achievement-card {
+		position: relative;
+		background: #ffffff;
+		border-radius: 12px;
+		padding: 40px 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		min-width: 180px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+		@media (max-width: 1024px) {
+			padding: 35px 25px;
+			min-width: 160px;
+		}
+
+		@media (max-width: 768px) {
+			padding: 30px 20px;
+			min-width: 140px;
+		}
+
+		@media (max-width: 480px) {
+			padding: 25px 18px;
+			min-width: 130px;
+		}
+
+		&:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+		}
+
+		/* Stagger effect - different vertical positions */
+		&:nth-child(1) {
+			margin-top: 0;
+		}
+
+		&:nth-child(2) {
+			margin-top: -20px;
+
+			@media (max-width: 768px) {
+				margin-top: 0;
+			}
+		}
+
+		&:nth-child(3) {
+			margin-top: 20px;
+
+			@media (max-width: 768px) {
+				margin-top: 0;
+			}
+		}
+
+		&:nth-child(4) {
+			margin-top: -10px;
+
+			@media (max-width: 768px) {
+				margin-top: 0;
+			}
+		}
+
+		&:nth-child(5) {
+			margin-top: 10px;
+
+			@media (max-width: 768px) {
+				margin-top: 0;
+			}
+		}
+
+		&:nth-child(6) {
+			margin-top: -15px;
+
+			@media (max-width: 768px) {
+				margin-top: 0;
+			}
+		}
+
+		.achievement-icon {
+			margin-bottom: 20px;
+
+			img {
+				width: 80px;
+				height: 80px;
+				display: block;
+				object-fit: contain;
+
+				@media (max-width: 768px) {
+					width: 70px;
+					height: 70px;
+				}
+
+				@media (max-width: 480px) {
+					width: 60px;
+					height: 60px;
+				}
+			}
+		}
+
+		.achievement-label {
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 1.4;
+			color: #333333;
+
+			@media (max-width: 768px) {
+				font-size: 15px;
+			}
+
+			@media (max-width: 480px) {
+				font-size: 14px;
+			}
+		}
+	}
+
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		padding: 60px 0;
+	}
+
+	@media (max-width: 768px) {
+		padding: 50px 0;
+	}
+
+	@media (max-width: 480px) {
+		padding: 40px 0;
+	}
+}

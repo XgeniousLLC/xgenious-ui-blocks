@@ -1,0 +1,149 @@
+/**
+ * Portfolio Grid Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-portfolio-grid {
+    &.xg-portfolio-grid {
+        position: relative;
+        border: 2px dashed #ddd;
+
+        &::before {
+            content: 'Portfolio Grid - Manage projects below ↓';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .portfolio-heading {
+            min-height: 30px;
+            outline: 1px dashed transparent;
+            transition: all 0.2s;
+
+            &:hover,
+            &:focus {
+                outline-color: #007cba;
+                background: rgba(0, 124, 186, 0.05);
+            }
+        }
+
+        .portfolio-item {
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            cursor: default;
+
+            &:hover {
+                border-color: #007cba;
+            }
+        }
+
+        .portfolio-item-controls {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 5;
+
+            .components-button {
+                min-width: auto;
+                padding: 6px 10px;
+                font-size: 16px;
+                background: white;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .portfolio-title-input .components-text-control__input {
+            font-size: 20px;
+            font-weight: 700;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-item-link,
+        .portfolio-item-color {
+            margin: 16px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+
+            p {
+                margin: 0 0 8px 0;
+                font-weight: 600;
+                font-size: 13px;
+            }
+        }
+
+        .image-upload-wrapper {
+            position: relative;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px;
+            }
+
+            .image-actions {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                gap: 8px;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            &:hover .image-actions {
+                opacity: 1;
+            }
+        }
+
+        .image-placeholder {
+            width: 100%;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px dashed rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.4);
+                border-color: rgba(0, 0, 0, 0.3);
+            }
+
+            .dashicon {
+                font-size: 48px;
+                width: 48px;
+                height: 48px;
+                color: rgba(0, 0, 0, 0.4);
+                margin-bottom: 12px;
+            }
+
+            p {
+                margin: 0;
+                color: rgba(0, 0, 0, 0.5);
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+
+        .add-project-wrapper {
+            text-align: center;
+            margin-top: 32px;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+/**
+ * Breadcrumb Header Block - Frontend Styles
+ */
+
+.xg-breadcrumb-header {
+	position: relative;
+	padding: 80px 0;
+	background: #1a1a1a;
+
+	.breadcrumb-header-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 60px;
+		justify-content: space-between;
+
+		/* Image on Right (Default) */
+		&.image-right {
+			flex-direction: row;
+		}
+
+		/* Image on Left */
+		&.image-left {
+			flex-direction: row-reverse;
+		}
+	}
+
+	/* Content Section */
+	.breadcrumb-content {
+		flex: 1;
+		max-width: 600px;
+
+		.breadcrumb-heading {
+			font-size: 48px;
+			font-weight: 700;
+			line-height: 1.2;
+			margin: 0 0 24px;
+			color: #ffffff;
+
+			@media (max-width: 768px) {
+				font-size: 36px;
+				margin-bottom: 16px;
+			}
+
+			@media (max-width: 480px) {
+				font-size: 28px;
+			}
+		}
+
+		.breadcrumb-description {
+			font-size: 18px;
+			line-height: 1.6;
+			margin: 0;
+			color: #a0a0a0;
+
+			@media (max-width: 768px) {
+				font-size: 16px;
+			}
+		}
+	}
+
+	/* Image Section */
+	.breadcrumb-image {
+		flex: 1;
+		max-width: 600px;
+		position: relative;
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+			border-radius: 12px;
+			object-fit: cover;
+		}
+	}
+
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		padding: 60px 0;
+
+		.breadcrumb-header-wrapper {
+			gap: 40px;
+		}
+
+		.breadcrumb-content {
+			max-width: 500px;
+		}
+
+		.breadcrumb-image {
+			max-width: 500px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		padding: 50px 0;
+
+		.breadcrumb-header-wrapper {
+			flex-direction: column !important;
+			gap: 30px;
+
+			&.image-left,
+			&.image-right {
+				flex-direction: column !important;
+			}
+		}
+
+		.breadcrumb-content,
+		.breadcrumb-image {
+			max-width: 100%;
+		}
+	}
+
+	@media (max-width: 480px) {
+		padding: 40px 0;
+
+		.breadcrumb-header-wrapper {
+			gap: 24px;
+		}
+	}
+}

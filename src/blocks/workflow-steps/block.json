@@ -1,0 +1,114 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/workflow-steps",
+    "title": "Workflow Steps",
+    "category": "xgenious-ui",
+    "icon": "list-view",
+    "description": "Display workflow or process steps with features in a grid layout",
+    "keywords": ["workflow", "process", "steps", "features", "how it works"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Our Work Flow"
+        },
+        "steps": {
+            "type": "array",
+            "default": [
+                {
+                    "stepLabel": "STEP - 01",
+                    "title": "Discovery",
+                    "features": [
+                        "Product Goals & Vision",
+                        "Market & Competitor Analysis",
+                        "Requirements Planning",
+                        "Define Scope & Roadmap"
+                    ]
+                },
+                {
+                    "stepLabel": "STEP - 02",
+                    "title": "Architecture",
+                    "features": [
+                        "Architectural Planning",
+                        "SaaS & Marketplace Blueprint",
+                        "API & Integration Strategy",
+                        "Security Framework"
+                    ]
+                },
+                {
+                    "stepLabel": "STEP - 03",
+                    "title": "Design & Development",
+                    "features": [
+                        "User Flow & Wireframes",
+                        "High-Fidelity Design System",
+                        "Agile Feature Cycle",
+                        "Testing & Quality Assurance"
+                    ]
+                },
+                {
+                    "stepLabel": "STEP - 04",
+                    "title": "Launch & Iterate",
+                    "features": [
+                        "Deployment & Setup",
+                        "User Testing & Feedback",
+                        "Performance Tune-Up",
+                        "Continuous Upgrades"
+                    ]
+                }
+            ]
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#f5f5f5"
+        },
+        "cardBackgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "stepLabelColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "checkmarkColor": {
+            "type": "string",
+            "default": "#10B981"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "Our Work Flow"
+        }
+    }
+}

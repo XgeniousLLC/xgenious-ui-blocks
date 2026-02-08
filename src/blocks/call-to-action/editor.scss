@@ -1,0 +1,21 @@
+/**
+ * Call to Action Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-call-to-action {
+	.cta-button {
+		cursor: text;
+		user-select: text;
+
+		&:hover {
+			transform: none;
+			box-shadow: none;
+		}
+	}
+
+	.cta-person {
+		img {
+			pointer-events: none;
+		}
+	}
+}

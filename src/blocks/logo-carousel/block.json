@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/logo-carousel",
+	"title": "Logo Carousel",
+	"category": "xgenious-ui",
+	"icon": "images-alt2",
+	"description": "Logo carousel with fade effects on edges, perfect for showcasing partners",
+	"keywords": ["logo", "carousel", "slider", "partners", "clients", "fade"],
+	"textdomain": "xgenious-ui-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css",
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"attributes": {
+		"logos": {
+			"type": "array",
+			"default": [
+				{
+					"id": null,
+					"url": "",
+					"alt": "Logo 1",
+					"link": ""
+				}
+			]
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"logoHeight": {
+			"type": "number",
+			"default": 40
+		},
+		"logoGap": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"fadeWidth": {
+			"type": "number",
+			"default": 120
+		},
+		"grayscale": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"logos": []
+		}
+	}
+}

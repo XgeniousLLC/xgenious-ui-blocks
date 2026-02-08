@@ -1,0 +1,126 @@
+/**
+ * Workflow Steps Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-workflow-steps {
+    &.xg-workflow-steps {
+        position: relative;
+        border: 2px dashed #ddd;
+
+        &::before {
+            content: 'Workflow Steps - Manage steps below ↓';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .workflow-heading {
+            min-height: 30px;
+            outline: 1px dashed transparent;
+            transition: all 0.2s;
+
+            &:hover,
+            &:focus {
+                outline-color: #007cba;
+                background: rgba(0, 124, 186, 0.05);
+            }
+        }
+
+        .workflow-step {
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+
+            &:hover {
+                border-color: #007cba;
+            }
+        }
+
+        .step-controls {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 5;
+
+            .components-button {
+                min-width: auto;
+                padding: 6px 10px;
+                font-size: 16px;
+                background: white;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .step-label-input .components-text-control__input {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .step-title-input .components-text-control__input {
+            font-size: 24px;
+            font-weight: 700;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .step-features {
+            margin-top: 16px;
+
+            .feature-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 8px;
+
+                .feature-icon {
+                    flex-shrink: 0;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: white;
+                }
+
+                .components-text-control__input {
+                    flex: 1;
+                    font-size: 15px;
+                    padding: 6px 8px;
+                }
+
+                .components-button {
+                    flex-shrink: 0;
+                    min-width: auto;
+                    padding: 4px 8px;
+                    font-size: 14px;
+                }
+            }
+
+            > .components-button {
+                margin-top: 12px;
+            }
+        }
+
+        .add-step-wrapper {
+            text-align: center;
+            margin-top: 32px;
+        }
+    }
+}

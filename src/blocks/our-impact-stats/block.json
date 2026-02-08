@@ -1,0 +1,92 @@
+{
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/our-impact-stats",
+	"title": "Our Impact Stats",
+	"category": "xgenious-ui",
+	"icon": "chart-bar",
+	"description": "Display impact statistics with numbers and labels in a grid layout",
+	"keywords": ["stats", "statistics", "impact", "numbers", "counter", "achievements"],
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "OUR IMPACT"
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{
+					"index": "01/",
+					"number": "7000",
+					"suffix": "+",
+					"label": "Customer Happy"
+				},
+				{
+					"index": "02/",
+					"number": "19",
+					"suffix": "+",
+					"label": "Awards Achieved"
+				},
+				{
+					"index": "03/",
+					"number": "25",
+					"suffix": "+",
+					"label": "Team Members"
+				},
+				{
+					"index": "04/",
+					"number": "100",
+					"suffix": "+",
+					"label": "Product develop"
+				}
+			]
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"cardBackgroundColor": {
+			"type": "string",
+			"default": "#2d2d2d"
+		},
+		"headingColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"indexColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"numberColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"labelColor": {
+			"type": "string",
+			"default": "#999999"
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"gap": {
+			"type": "number",
+			"default": 20
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"html": false
+	},
+	"textdomain": "xgenious-ui-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

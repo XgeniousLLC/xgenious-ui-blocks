@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/logo-grid",
+	"title": "Logo Grid",
+	"category": "xgenious-ui",
+	"icon": "grid-view",
+	"description": "Display partner logos in a grid with dividers",
+	"keywords": ["logo", "grid", "partners", "clients", "brands", "dividers"],
+	"textdomain": "xgenious-ui-blocks",
+	"attributes": {
+		"logos": {
+			"type": "array",
+			"default": [
+				{
+					"id": null,
+					"url": "",
+					"alt": "Partner Logo 1",
+					"link": ""
+				},
+				{
+					"id": null,
+					"url": "",
+					"alt": "Partner Logo 2",
+					"link": ""
+				},
+				{
+					"id": null,
+					"url": "",
+					"alt": "Partner Logo 3",
+					"link": ""
+				},
+				{
+					"id": null,
+					"url": "",
+					"alt": "Partner Logo 4",
+					"link": ""
+				}
+			]
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"logoHeight": {
+			"type": "number",
+			"default": 40
+		},
+		"showDividers": {
+			"type": "boolean",
+			"default": true
+		},
+		"dividerColor": {
+			"type": "string",
+			"default": "#e5e7eb"
+		},
+		"grayscaleEffect": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css"
+}

@@ -1,0 +1,63 @@
+/**
+ * Photo Gallery Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-photo-gallery {
+	.gallery-item {
+		position: relative;
+
+		.gallery-item-controls {
+			position: absolute;
+			top: 8px;
+			right: 8px;
+			z-index: 10;
+			opacity: 0;
+			transition: opacity 0.2s ease;
+
+			button {
+				background: rgba(220, 38, 38, 0.9);
+				color: white;
+				border: none;
+				padding: 4px 8px;
+				border-radius: 4px;
+				cursor: pointer;
+				font-size: 14px;
+
+				&:hover {
+					background: rgba(220, 38, 38, 1);
+				}
+			}
+		}
+
+		&:hover .gallery-item-controls {
+			opacity: 1;
+		}
+	}
+
+	.gallery-placeholder {
+		grid-column: 1 / -1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f0f0f0;
+		border: 2px dashed #ccc;
+		border-radius: 8px;
+		min-height: 300px;
+		padding: 40px;
+
+		p {
+			font-size: 16px;
+			color: #666;
+			margin: 0;
+			text-align: center;
+		}
+	}
+
+	.gallery-heading,
+	.gallery-description {
+		&:focus {
+			outline: 2px solid #007cba;
+			outline-offset: 2px;
+		}
+	}
+}

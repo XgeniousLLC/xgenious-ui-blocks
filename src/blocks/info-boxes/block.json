@@ -1,0 +1,92 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/info-boxes",
+    "title": "Info Boxes",
+    "category": "xgenious-ui",
+    "icon": "info",
+    "description": "Display information boxes with icons, titles, and descriptions in a two-column layout",
+    "keywords": ["info", "boxes", "features", "services", "icon boxes"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "headingLine1": {
+            "type": "string",
+            "default": "Expert resources,"
+        },
+        "headingLine2": {
+            "type": "string",
+            "default": "Ready to work"
+        },
+        "boxes": {
+            "type": "array",
+            "default": [
+                {
+                    "icon": "clock",
+                    "iconBackgroundColor": "#FFE5E5",
+                    "iconColor": "#FF6B6B",
+                    "title": "Hourly",
+                    "description": "We help you hire expert resources—fast, reliable, and tailored to your project requirements."
+                },
+                {
+                    "icon": "groups",
+                    "iconBackgroundColor": "#FFE5E5",
+                    "iconColor": "#FF6B6B",
+                    "title": "Resource Hiring",
+                    "description": "We help you hire expert resources—fast, reliable, and tailored to your project requirements."
+                },
+                {
+                    "icon": "portfolio",
+                    "iconBackgroundColor": "#FFE5E5",
+                    "iconColor": "#FF6B6B",
+                    "title": "Project-Based",
+                    "description": "We help you hire expert resources—fast, reliable, and tailored to your project requirements."
+                }
+            ]
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "boxBackgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "headingColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "headingLine1": "Expert resources,",
+            "headingLine2": "Ready to work"
+        }
+    }
+}

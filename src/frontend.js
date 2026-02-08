@@ -1,0 +1,214 @@
+/**
+ * Frontend JavaScript for Xgenious UI Blocks.
+ * This file is loaded on the public-facing side.
+ */
+
+(function($) {
+    'use strict';
+
+    const XgeniousUIBlocks = {
+        /**
+         * Initialize all blocks.
+         */
+        init: function() {
+            this.initCounters();
+            this.initAccordions();
+            this.initTabs();
+            this.initProgressBars();
+            this.initAnimations();
+            this.initTestimonialSliders();
+        },
+
+        /**
+         * Initialize counter blocks.
+         */
+        initCounters: function() {
+            $('.xgenious-counter').each(function() {
+                const $counter = $(this);
+                const $number = $counter.find('.counter-number');
+                const targetValue = parseInt($number.data('target'), 10);
+                const duration = parseInt($number.data('duration') || 2000, 10);
+
+                // Animate counter when visible
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !$counter.hasClass('animated')) {
+                            $counter.addClass('animated');
+                            animateCounter($number, targetValue, duration);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe($counter[0]);
+            });
+
+            function animateCounter($element, target, duration) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    $element.text(Math.floor(current));
+                }, 16);
+            }
+        },
+
+        /**
+         * Initialize accordion blocks.
+         */
+        initAccordions: function() {
+            $('.xgenious-accordion').each(function() {
+                const $accordion = $(this);
+                const allowMultiple = $accordion.data('allow-multiple');
+
+                $accordion.find('.accordion-header').on('click', function() {
+                    const $header = $(this);
+                    const $item = $header.closest('.accordion-item');
+                    const $content = $item.find('.accordion-content');
+
+                    if (!allowMultiple) {
+                        // Close other items
+                        $accordion.find('.accordion-item').not($item).removeClass('active');
+                        $accordion.find('.accordion-content').not($content).slideUp(300);
+                    }
+
+                    // Toggle current item
+                    $item.toggleClass('active');
+                    $content.slideToggle(300);
+                });
+            });
+        },
+
+        /**
+         * Initialize tabs blocks.
+         */
+        initTabs: function() {
+            $('.xgenious-tabs').each(function() {
+                const $tabs = $(this);
+                const $tabButtons = $tabs.find('.tab-button');
+                const $tabPanels = $tabs.find('.tab-panel');
+
+                $tabButtons.on('click', function() {
+                    const $button = $(this);
+                    const tabId = $button.data('tab');
+
+                    // Update active states
+                    $tabButtons.removeClass('active');
+                    $button.addClass('active');
+
+                    $tabPanels.removeClass('active');
+                    $tabs.find(`[data-tab-panel="${tabId}"]`).addClass('active');
+                });
+            });
+        },
+
+        /**
+         * Initialize progress bar blocks.
+         */
+        initProgressBars: function() {
+            $('.xgenious-progress-bar').each(function() {
+                const $progressBar = $(this);
+                const $fill = $progressBar.find('.progress-fill');
+                const percentage = parseInt($fill.data('percentage'), 10);
+
+                // Animate progress bar when visible
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !$progressBar.hasClass('animated')) {
+                            $progressBar.addClass('animated');
+                            $fill.css('width', percentage + '%');
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe($progressBar[0]);
+            });
+        },
+
+        /**
+         * Initialize scroll animations.
+         */
+        initAnimations: function() {
+            const $animatedElements = $('.animate-on-scroll');
+
+            if ($animatedElements.length === 0) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const $element = $(entry.target);
+                        const animationClass = $element.data('animation') || 'fadeIn';
+
+                        $element.addClass('animate__animated animate__' + animationClass);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            $animatedElements.each(function() {
+                observer.observe(this);
+            });
+        },
+
+        /**
+         * Initialize testimonial sliders.
+         */
+        initTestimonialSliders: function() {
+            $('.xg-testimonial-slider').each(function() {
+                const $slider = $(this);
+                const $wrapper = $slider.find('.testimonial-slider-wrapper');
+                const $prevBtn = $slider.find('.nav-prev');
+                const $nextBtn = $slider.find('.nav-next');
+                const slidesPerView = parseInt($slider.attr('data-slides-per-view') || 2);
+                const autoplay = $slider.data('autoplay');
+
+                // Initialize Slick Slider
+                $wrapper.slick({
+                    slidesToShow: slidesPerView,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    arrows: true,
+                    prevArrow: $prevBtn,
+                    nextArrow: $nextBtn,
+                    autoplay: autoplay || false,
+                    autoplaySpeed: 5000,
+                    speed: 600,
+                    cssEase: 'ease-in-out',
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: Math.min(slidesPerView, 2),
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+            });
+        }
+    };
+
+    // Initialize on document ready
+    $(document).ready(function() {
+        XgeniousUIBlocks.init();
+    });
+
+    // Expose to global scope for external access
+    window.XgeniousUIBlocks = XgeniousUIBlocks;
+
+})(jQuery);

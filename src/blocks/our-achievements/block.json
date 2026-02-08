@@ -1,0 +1,100 @@
+{
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/our-achievements",
+	"title": "Our Achievements",
+	"category": "xgenious-ui",
+	"icon": "awards",
+	"description": "Display achievements with icons and labels in a grid layout",
+	"keywords": ["achievements", "awards", "badges", "icons", "accomplishments"],
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our achievement on Code canyon"
+		},
+		"achievements": {
+			"type": "array",
+			"default": [
+				{
+					"icon": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"label": "Exclusive Author"
+				},
+				{
+					"icon": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"label": "Featured Author"
+				},
+				{
+					"icon": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"label": "Top Sales Week"
+				},
+				{
+					"icon": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"label": "6 Years Membership"
+				},
+				{
+					"icon": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"label": "Elite Author"
+				},
+				{
+					"icon": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"label": "Trendsetter"
+				}
+			]
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f5f5f5"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"cardBackgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"labelColor": {
+			"type": "string",
+			"default": "#333333"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"html": false
+	},
+	"textdomain": "xgenious-ui-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

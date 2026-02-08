@@ -1,0 +1,59 @@
+{
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/breadcrumb-header",
+	"title": "Breadcrumb Header",
+	"category": "xgenious-ui",
+	"icon": "layout",
+	"description": "Header section with title, description and image",
+	"keywords": ["breadcrumb", "header", "banner", "page header"],
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "About Xgenious team"
+		},
+		"description": {
+			"type": "string",
+			"default": "Our journey began with a simple mission to transform the digital landscape one pixel at a time."
+		},
+		"image": {
+			"type": "object",
+			"default": {
+				"id": null,
+				"url": "",
+				"alt": ""
+			}
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"headingColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#a0a0a0"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": "right"
+		}
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"html": false
+	},
+	"textdomain": "xgenious-ui-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

@@ -1,0 +1,186 @@
+/**
+ * Service Grid Block - Frontend Styles
+ */
+
+.xg-service-grid {
+    position: relative;
+
+    /* Header */
+    .service-grid-header {
+        text-align: center;
+        margin-bottom: 60px;
+
+        .service-grid-title {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+            font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+        }
+    }
+
+    /* Grid Layout */
+    .service-grid-items {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* Column variations */
+    &.columns-1 .service-grid-items {
+        grid-template-columns: 1fr;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    &.columns-2 .service-grid-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.columns-3 .service-grid-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &.columns-4 .service-grid-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Service Item */
+    .service-item {
+        border-radius: 12px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    /* Item Title */
+    .service-item-title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin: 0 0 24px 0;
+        font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+    }
+
+    /* Features List */
+    .service-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 32px 0;
+        flex-grow: 1;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .feature-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        margin-top: 2px;
+    }
+
+    .feature-text {
+        flex: 1;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Service Image */
+    .service-item-image {
+        margin-top: auto;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #ffffff;
+        padding: 16px;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        &.columns-4 .service-grid-items {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .service-grid-header .service-grid-title {
+            font-size: 36px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 60px 0 !important;
+
+        .service-grid-header {
+            margin-bottom: 40px;
+
+            .service-grid-title {
+                font-size: 28px;
+            }
+        }
+
+        .service-grid-items {
+            gap: 24px;
+        }
+
+        &.columns-2 .service-grid-items,
+        &.columns-3 .service-grid-items,
+        &.columns-4 .service-grid-items {
+            grid-template-columns: 1fr;
+        }
+
+        .service-item {
+            padding: 24px;
+        }
+
+        .service-item-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .feature-text {
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .service-grid-header .service-grid-title {
+            font-size: 24px;
+        }
+
+        .service-item {
+            padding: 20px;
+        }
+
+        .service-item-title {
+            font-size: 18px;
+        }
+    }
+}

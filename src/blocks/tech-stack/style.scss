@@ -1,0 +1,174 @@
+/**
+ * Tech Stack Block - Frontend Styles
+ */
+
+.xg-tech-stack {
+    position: relative;
+
+    /* Full Width Option */
+    > div:not(.xg-container) {
+        padding-left: var(--xg-container-padding, 20px);
+        padding-right: var(--xg-container-padding, 20px);
+    }
+
+    /* Heading */
+    .tech-stack-heading {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 60px 0;
+        text-align: center;
+        font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+    }
+
+    /* Tech Grid */
+    .tech-stack-grid {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    &.columns-3 .tech-stack-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &.columns-4 .tech-stack-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &.columns-5 .tech-stack-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    &.columns-6 .tech-stack-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    &.columns-7 .tech-stack-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    &.columns-8 .tech-stack-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    &.columns-9 .tech-stack-grid {
+        grid-template-columns: repeat(9, 1fr);
+    }
+
+    &.columns-10 .tech-stack-grid {
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    /* Tech Item */
+    .tech-item {
+        border: 1px solid;
+        padding: 24px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        min-height: 120px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            z-index: 1;
+        }
+    }
+
+    .tech-image-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tech-image {
+        max-width: 64px;
+        max-height: 64px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .tech-name {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        &.columns-7 .tech-stack-grid,
+        &.columns-8 .tech-stack-grid,
+        &.columns-9 .tech-stack-grid,
+        &.columns-10 .tech-stack-grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .tech-stack-heading {
+            font-size: 40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 60px 0 !important;
+
+        .tech-stack-heading {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        &.columns-5 .tech-stack-grid,
+        &.columns-6 .tech-stack-grid,
+        &.columns-7 .tech-stack-grid,
+        &.columns-8 .tech-stack-grid,
+        &.columns-9 .tech-stack-grid,
+        &.columns-10 .tech-stack-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .tech-item {
+            padding: 20px 12px;
+            min-height: 100px;
+        }
+
+        .tech-image {
+            max-width: 48px;
+            max-height: 48px;
+        }
+
+        .tech-name {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .tech-stack-heading {
+            font-size: 28px;
+        }
+
+        .tech-stack-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+
+        .tech-item {
+            padding: 16px 8px;
+            min-height: 90px;
+        }
+
+        .tech-image {
+            max-width: 40px;
+            max-height: 40px;
+        }
+
+        .tech-name {
+            font-size: 12px;
+        }
+    }
+}

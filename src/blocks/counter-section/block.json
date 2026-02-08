@@ -1,0 +1,84 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/counter-section",
+    "title": "Counter Section",
+    "category": "xgenious-ui",
+    "icon": "chart-bar",
+    "description": "Display statistics with counters, labels, and an optional image",
+    "keywords": ["counter", "stats", "statistics", "numbers", "achievements"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "AI Results you can rely on Human Approved"
+        },
+        "counters": {
+            "type": "array",
+            "default": [
+                {
+                    "number": "25+",
+                    "label": "Expert Team",
+                    "description": "Experienced experts providing Results with dedication."
+                },
+                {
+                    "number": "25+",
+                    "label": "Expert Team",
+                    "description": "Experienced experts providing Results with dedication."
+                }
+            ]
+        },
+        "image": {
+            "type": "object",
+            "default": {
+                "id": null,
+                "url": "",
+                "alt": ""
+            }
+        },
+        "showImage": {
+            "type": "boolean",
+            "default": true
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#E8E9EB"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "counterColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "borderRadius": {
+            "type": "number",
+            "default": 24
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "AI Results you can rely on Human Approved"
+        }
+    }
+}

@@ -1,0 +1,130 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/tech-stack",
+    "title": "Tech Stack",
+    "category": "xgenious-ui",
+    "icon": "admin-settings",
+    "description": "Display your technology stack with icons and labels in a grid layout",
+    "keywords": ["tech", "stack", "technology", "tools", "framework", "grid"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Our AI-Powered Engineering Foundation"
+        },
+        "technologies": {
+            "type": "array",
+            "default": [
+                {
+                    "name": "React",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                },
+                {
+                    "name": "React",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                },
+                {
+                    "name": "React",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                },
+                {
+                    "name": "React",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                },
+                {
+                    "name": "React",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                },
+                {
+                    "name": "React",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                },
+                {
+                    "name": "React",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                }
+            ]
+        },
+        "columns": {
+            "type": "number",
+            "default": 7
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "headingColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "itemBackgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "itemBorderColor": {
+            "type": "string",
+            "default": "#e5e5e5"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "Our AI-Powered Engineering Foundation"
+        }
+    }
+}

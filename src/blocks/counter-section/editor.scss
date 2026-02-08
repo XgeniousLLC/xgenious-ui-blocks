@@ -1,0 +1,116 @@
+/**
+ * Counter Section Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-counter-section {
+    &.xg-counter-section {
+        position: relative;
+        border: 2px dashed #ddd;
+
+        /* Editor hint */
+        &::before {
+            content: 'Counter Section - Manage counters below ↓';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Editable heading */
+        .counter-section-heading {
+            min-height: 30px;
+            outline: 1px dashed transparent;
+            transition: all 0.2s;
+
+            &:hover,
+            &:focus {
+                outline-color: #007cba;
+                background: rgba(0, 124, 186, 0.05);
+            }
+        }
+
+        .counter-section-heading[data-is-placeholder-visible="true"] {
+            opacity: 0.6;
+        }
+
+        /* Counter Item in Editor */
+        .counter-item {
+            position: relative;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: all 0.2s;
+
+            &:hover {
+                border-color: #007cba;
+                background: rgba(0, 124, 186, 0.02);
+            }
+        }
+
+        /* Counter Controls */
+        .counter-controls {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 5;
+
+            .components-button {
+                min-width: auto;
+                padding: 4px 8px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+
+        /* Counter Input Fields */
+        .counter-number-input .components-text-control__input {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            padding: 8px;
+            font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+        }
+
+        .counter-label-input .components-text-control__input {
+            font-size: 16px;
+            font-weight: 600;
+            padding: 4px 8px;
+        }
+
+        .counter-description-wrapper .components-text-control__input {
+            font-size: 15px;
+            line-height: 1.6;
+            padding: 8px;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            width: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 124, 186, 0.05);
+            border: 2px dashed rgba(0, 124, 186, 0.3);
+            border-radius: 12px;
+
+            p {
+                margin: 0;
+                color: #007cba;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+
+        /* Image in Editor */
+        .counter-section-image img {
+            border-radius: 12px;
+        }
+    }
+}

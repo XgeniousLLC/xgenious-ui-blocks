@@ -1,0 +1,59 @@
+{
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/photo-gallery",
+	"title": "Photo Gallery",
+	"category": "xgenious-ui",
+	"icon": "format-gallery",
+	"description": "Photo gallery with heading, description and grid layout",
+	"keywords": ["photo", "gallery", "images", "grid", "portfolio"],
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Creating experiences Rooted in Authentic culture"
+		},
+		"description": {
+			"type": "string",
+			"default": "Our portfolio is a tapestry of success stories, each woven with precision, creativity, and a deep understanding of our clients' visions."
+		},
+		"images": {
+			"type": "array",
+			"default": []
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"gap": {
+			"type": "number",
+			"default": 20
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"headingColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"html": false
+	},
+	"textdomain": "xgenious-ui-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

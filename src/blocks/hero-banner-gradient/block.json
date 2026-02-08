@@ -1,0 +1,118 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/hero-banner-gradient",
+    "title": "Hero Banner Gradient",
+    "category": "xgenious-ui",
+    "icon": "cover-image",
+    "description": "Hero banner with background image support, perfect for gradient backgrounds",
+    "keywords": ["hero", "banner", "gradient", "background", "cta"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "badge": {
+            "type": "string",
+            "default": "400+ PROJECT COMPLETED"
+        },
+        "badgeIcon": {
+            "type": "string",
+            "default": "🚀"
+        },
+        "heading": {
+            "type": "string",
+            "default": "We Build High Performance SaaS and Marketplace Platforms."
+        },
+        "description": {
+            "type": "string",
+            "default": "Xgenious is a global SaaS & Marketplace development agency, Solution for your business"
+        },
+        "primaryButtonText": {
+            "type": "string",
+            "default": "Start Your Project"
+        },
+        "primaryButtonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "secondaryButtonText": {
+            "type": "string",
+            "default": "View Case Studies"
+        },
+        "secondaryButtonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "showSecondaryButton": {
+            "type": "boolean",
+            "default": true
+        },
+        "backgroundImage": {
+            "type": "object",
+            "default": {
+                "id": null,
+                "url": "",
+                "alt": ""
+            }
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#F5F6F7"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "primaryColor": {
+            "type": "string",
+            "default": "#FF7B6D"
+        },
+        "contentAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 140
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 140
+        },
+        "enableDecorations": {
+            "type": "boolean",
+            "default": false
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": true
+        },
+        "heroImage": {
+            "type": "object",
+            "default": {
+                "id": null,
+                "url": "",
+                "alt": ""
+            }
+        },
+        "showImage": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "We Build High Performance SaaS Platforms",
+            "badge": "400+ PROJECTS"
+        }
+    }
+}

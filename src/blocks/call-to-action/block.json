@@ -1,0 +1,110 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/call-to-action",
+	"title": "Call to Action",
+	"category": "xgenious-ui",
+	"icon": "megaphone",
+	"description": "Eye-catching CTA section with background image and buttons",
+	"keywords": ["cta", "action", "button", "consultation"],
+	"textdomain": "xgenious-ui-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css",
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Ready to Build Your SaaS or Marketplace?"
+		},
+		"description": {
+			"type": "string",
+			"default": "Book a free consultation — get a roadmap & estimate."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Book a Free Consultation"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"buttonNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundImage": {
+			"type": "object",
+			"default": {
+				"id": null,
+				"url": "",
+				"alt": ""
+			}
+		},
+		"personImage": {
+			"type": "object",
+			"default": {
+				"id": null,
+				"url": "",
+				"alt": ""
+			}
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.5)"
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 50
+		},
+		"headingColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#9ca3af"
+		},
+		"buttonColor": {
+			"type": "string",
+			"default": "#ef6e5f"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"borderRadius": {
+			"type": "number",
+			"default": 24
+		},
+		"fullWidth": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"heading": "Ready to Build Your SaaS or Marketplace?",
+			"description": "Book a free consultation — get a roadmap & estimate."
+		}
+	}
+}

@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/logo-showcase",
+    "title": "Logo Showcase",
+    "category": "xgenious-ui",
+    "icon": "awards",
+    "description": "Display company logos to showcase clients, partners, or trusted brands",
+    "keywords": ["logo", "clients", "partners", "brands", "trusted"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Trusted by Leading Companies Worldwide"
+        },
+        "logos": {
+            "type": "array",
+            "default": []
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "contentAlignment": {
+            "type": "string",
+            "default": "left"
+        },
+        "logoSize": {
+            "type": "string",
+            "default": "medium"
+        },
+        "logoGap": {
+            "type": "number",
+            "default": 40
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "enableBorder": {
+            "type": "boolean",
+            "default": true
+        },
+        "grayscale": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "Trusted by Leading Companies Worldwide"
+        }
+    }
+}

@@ -1,0 +1,210 @@
+/**
+ * Logo Showcase Block - Frontend Styles
+ */
+
+.xg-logo-showcase {
+    position: relative;
+    overflow: hidden;
+
+    .xg-container.has-border {
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    /* Main Row - Flex Layout */
+    .xg-row {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 48px;
+    }
+
+    /* Heading Column - Left Side */
+    .logo-showcase-heading {
+        flex: 0 0 auto;
+        max-width: 240px;
+
+        .showcase-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0;
+            font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+        }
+    }
+
+    /* Logo Grid - Right Side */
+    .logo-showcase-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        flex: 1;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &.logo-size-sm {
+            .logo-item img {
+                max-height: 40px;
+                max-width: 80px;
+            }
+        }
+
+        &.logo-size-md {
+            .logo-item img {
+                max-height: 60px;
+                max-width: 100px;
+            }
+        }
+
+        &.logo-size-lg {
+            .logo-item img {
+                max-height: 80px;
+                max-width: 140px;
+            }
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                display: block;
+                line-height: 0;
+            }
+
+            img {
+                width: auto;
+                height: auto;
+                display: block;
+                object-fit: contain;
+                transition: all 0.3s ease;
+            }
+        }
+
+        /* Grayscale Effect */
+        &.grayscale-effect {
+            .logo-item img {
+                filter: grayscale(100%);
+                opacity: 0.6;
+            }
+
+            .logo-item:hover img {
+                filter: grayscale(0%);
+                opacity: 1;
+            }
+        }
+    }
+
+    /* Center Alignment */
+    &.align-center {
+        .logo-showcase-heading {
+            text-align: center;
+        }
+
+        .logo-showcase-grid {
+            justify-content: center;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 991px) {
+        .xg-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+        }
+
+        .logo-showcase-heading {
+            width: 100%;
+
+            .showcase-title {
+                font-size: 18px;
+                white-space: normal;
+            }
+        }
+
+        .logo-showcase-grid {
+            width: 100%;
+            justify-content: flex-start;
+
+            &.logo-size-sm .logo-item img {
+                max-height: 36px;
+                max-width: 75px;
+            }
+
+            &.logo-size-md .logo-item img {
+                max-height: 54px;
+                max-width: 90px;
+            }
+
+            &.logo-size-lg .logo-item img {
+                max-height: 70px;
+                max-width: 120px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 60px 0 !important;
+
+        .xg-row {
+            gap: 24px;
+        }
+
+        .logo-showcase-heading {
+            text-align: center;
+
+            .showcase-title {
+                font-size: 16px;
+            }
+        }
+
+        .logo-showcase-grid {
+            justify-content: center;
+            gap: 30px !important;
+
+            &.logo-size-sm .logo-item img {
+                max-height: 32px;
+                max-width: 70px;
+            }
+
+            &.logo-size-md .logo-item img {
+                max-height: 48px;
+                max-width: 85px;
+            }
+
+            &.logo-size-lg .logo-item img {
+                max-height: 64px;
+                max-width: 110px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo-showcase-heading .showcase-title {
+            font-size: 15px;
+        }
+
+        .logo-showcase-grid {
+            gap: 24px !important;
+
+            &.logo-size-sm .logo-item img {
+                max-height: 28px;
+                max-width: 65px;
+            }
+
+            &.logo-size-md .logo-item img {
+                max-height: 40px;
+                max-width: 75px;
+            }
+
+            &.logo-size-lg .logo-item img {
+                max-height: 56px;
+                max-width: 100px;
+            }
+        }
+    }
+}

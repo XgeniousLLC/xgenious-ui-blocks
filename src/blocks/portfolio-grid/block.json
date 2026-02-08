@@ -1,0 +1,122 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/portfolio-grid",
+    "title": "Portfolio Grid",
+    "category": "xgenious-ui",
+    "icon": "portfolio",
+    "description": "Showcase portfolio projects in a beautiful grid layout with images",
+    "keywords": ["portfolio", "projects", "showcase", "work", "gallery"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Showcasing Our Best Work"
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "View All Portfolio"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "showButton": {
+            "type": "boolean",
+            "default": true
+        },
+        "projects": {
+            "type": "array",
+            "default": [
+                {
+                    "title": "Xilancer",
+                    "description": "Freelancer Marketplace Platform",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    },
+                    "link": "#",
+                    "backgroundColor": "#A8B5FF"
+                },
+                {
+                    "title": "Taskip",
+                    "description": "Client Portal Software for Agencies and Freelancers",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    },
+                    "link": "#",
+                    "backgroundColor": "#7EDCC8"
+                },
+                {
+                    "title": "Prohandy",
+                    "description": "On-Demand Handyman & Home Service Provider Marketplace Platform",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    },
+                    "link": "#",
+                    "backgroundColor": "#9FB9FF"
+                },
+                {
+                    "title": "Nazmart",
+                    "description": "Nazmart - Multi-Tenancy eCommerce Platform (SAAS)",
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    },
+                    "link": "#",
+                    "backgroundColor": "#FFC7B5"
+                }
+            ]
+        },
+        "columns": {
+            "type": "number",
+            "default": 2
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "buttonColor": {
+            "type": "string",
+            "default": "#FF7B6D"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "Showcasing Our Best Work"
+        }
+    }
+}

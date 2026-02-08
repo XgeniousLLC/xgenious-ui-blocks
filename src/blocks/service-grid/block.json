@@ -1,0 +1,108 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/service-grid",
+    "title": "Service Grid",
+    "category": "xgenious-ui",
+    "icon": "grid-view",
+    "description": "Display services or features in a grid with checkmarks, descriptions, and images",
+    "keywords": ["service", "feature", "grid", "showcase", "product"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "mainHeading": {
+            "type": "string",
+            "default": "SaaS Product development Experience area"
+        },
+        "items": {
+            "type": "array",
+            "default": [
+                {
+                    "title": "SaaS Development",
+                    "features": [
+                        "Multi-tenancy architecture",
+                        "Subscription billing systems",
+                        "Advanced admin dashboards",
+                        "Analytics & user role management"
+                    ],
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                },
+                {
+                    "title": "Marketplace Development",
+                    "features": [
+                        "Multi-vendor workflow automation",
+                        "Wallet, escrow & payout systems",
+                        "Seller & vendor dashboards",
+                        "Real-time messaging & notifications"
+                    ],
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                },
+                {
+                    "title": "Mobile app Development",
+                    "features": [
+                        "Cross-platform Flutter apps",
+                        "Native-level performance",
+                        "Seamless API integration",
+                        "Offline support & push notifications"
+                    ],
+                    "image": {
+                        "id": null,
+                        "url": "",
+                        "alt": ""
+                    }
+                }
+            ]
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "boxBackgroundColor": {
+            "type": "string",
+            "default": "#F5F6F7"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "accentColor": {
+            "type": "string",
+            "default": "#10B981"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        }
+    },
+    "example": {
+        "attributes": {
+            "mainHeading": "SaaS Product development Experience area"
+        }
+    }
+}

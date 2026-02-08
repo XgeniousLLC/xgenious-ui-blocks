@@ -1,0 +1,303 @@
+/**
+ * Global frontend styles for Xgenious UI Blocks.
+ * These styles apply on the public-facing side.
+ */
+
+/* Import Global Framework */
+@import './framework.scss';
+
+/* Import Block Styles */
+@import './blocks/hero-banner/style.scss';
+
+/* Common Block Styles */
+.xgenious-ui-block {
+    margin-bottom: 40px;
+
+    &.alignwide {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.alignfull {
+        max-width: 100%;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+    }
+}
+
+/* Container */
+.xgenious-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section Spacing */
+.xgenious-section {
+    padding: 80px 0;
+
+    &.section-small {
+        padding: 40px 0;
+    }
+
+    &.section-large {
+        padding: 120px 0;
+    }
+}
+
+/* Typography */
+.xgenious-heading {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--xgenious-text-color);
+}
+
+.xgenious-subheading {
+    font-size: 16px;
+    color: var(--xgenious-primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* Buttons */
+.xgenious-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--xgenious-border-radius);
+    transition: var(--xgenious-transition);
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-align: center;
+
+    &.btn-primary {
+        background: var(--xgenious-primary-color);
+        color: #fff;
+
+        &:hover {
+            background: var(--xgenious-secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--xgenious-shadow);
+        }
+    }
+
+    &.btn-secondary {
+        background: transparent;
+        color: var(--xgenious-primary-color);
+        border-color: var(--xgenious-primary-color);
+
+        &:hover {
+            background: var(--xgenious-primary-color);
+            color: #fff;
+        }
+    }
+
+    &.btn-large {
+        padding: 18px 40px;
+        font-size: 18px;
+    }
+
+    &.btn-small {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+
+    &.btn-block {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Icon */
+.xgenious-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--xgenious-light-bg);
+    border-radius: 50%;
+    color: var(--xgenious-primary-color);
+    font-size: 28px;
+    transition: var(--xgenious-transition);
+
+    &.icon-large {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+    }
+
+    &.icon-small {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+/* Card */
+.xgenious-card {
+    background: #fff;
+    border-radius: var(--xgenious-border-radius);
+    padding: 30px;
+    box-shadow: var(--xgenious-shadow);
+    transition: var(--xgenious-transition);
+
+    &:hover {
+        box-shadow: var(--xgenious-shadow-hover);
+        transform: translateY(-4px);
+    }
+}
+
+/* Overlay */
+.xgenious-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Image */
+.xgenious-image {
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--xgenious-border-radius);
+    }
+}
+
+/* Grid System */
+.xgenious-grid {
+    display: grid;
+    gap: 30px;
+
+    &.grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &.grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+    .xgenious-grid {
+        &.grid-4 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .xgenious-grid {
+        &.grid-2,
+        &.grid-3,
+        &.grid-4 {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .xgenious-section {
+        padding: 60px 0;
+
+        &.section-small {
+            padding: 30px 0;
+        }
+
+        &.section-large {
+            padding: 80px 0;
+        }
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Accessibility */
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    word-wrap: normal !important;
+}
+
+/* Focus styles */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--xgenious-primary-color);
+    outline-offset: 2px;
+}

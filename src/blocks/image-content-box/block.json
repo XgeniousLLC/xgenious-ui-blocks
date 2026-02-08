@@ -1,0 +1,75 @@
+{
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/image-content-box",
+	"title": "Image and Content Box",
+	"category": "xgenious-ui",
+	"icon": "align-pull-left",
+	"description": "Image with content section including heading, description and button",
+	"keywords": ["image", "content", "box", "cta", "call to action", "banner"],
+	"attributes": {
+		"image": {
+			"type": "object",
+			"default": {
+				"id": null,
+				"url": "",
+				"alt": ""
+			}
+		},
+		"heading": {
+			"type": "string",
+			"default": "Feeling stuck at your current work?"
+		},
+		"description": {
+			"type": "string",
+			"default": "Join us at Xgenious and be part of something exciting! We're looking for people who love technology and creativity to help us make great websites and apps. Come work in a friendly team where your ideas really make a difference."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Join with us"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"showArrowButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": "left"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"headingColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"buttonColor": {
+			"type": "string",
+			"default": "#ea7c69"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"html": false
+	},
+	"textdomain": "xgenious-ui-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}
