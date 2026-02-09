@@ -1,0 +1,41 @@
+/**
+ * Template Grid Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-template-grid {
+	.section-title {
+		&:focus {
+			outline: 2px solid #007cba;
+			outline-offset: 2px;
+		}
+	}
+
+	.template-card {
+		cursor: default;
+	}
+
+	.image-placeholder {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 280px;
+		background: #f0f0f0;
+		border: 2px dashed #ddd;
+		border-radius: 12px;
+
+		.dashicons {
+			font-size: 48px;
+			width: 48px;
+			height: 48px;
+			color: #999;
+			margin-bottom: 8px;
+		}
+
+		p {
+			margin: 0;
+			color: #999;
+			font-size: 14px;
+		}
+	}
+}

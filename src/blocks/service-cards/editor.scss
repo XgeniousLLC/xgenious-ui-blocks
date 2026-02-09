@@ -1,0 +1,62 @@
+/**
+ * Service Cards Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-service-cards {
+	.section-title {
+		&:focus {
+			outline: 2px solid #007cba;
+			outline-offset: 2px;
+		}
+	}
+
+	.service-card-image {
+		cursor: pointer;
+
+		.image-placeholder {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-height: 200px;
+			background: #f0f0f0;
+			border: 2px dashed #ccc;
+			border-radius: 12px;
+			color: #666;
+			transition: all 0.3s ease;
+
+			&:hover {
+				background: #e8e8e8;
+				border-color: #999;
+			}
+
+			.dashicons {
+				font-size: 48px;
+				width: 48px;
+				height: 48px;
+				margin-bottom: 12px;
+			}
+
+			p {
+				margin: 0;
+				font-size: 14px;
+			}
+		}
+
+		img {
+			display: block;
+		}
+	}
+
+	.service-card-title,
+	.service-card-description {
+		&:focus {
+			outline: 2px solid #007cba;
+			outline-offset: 2px;
+		}
+	}
+
+	.service-card {
+		position: relative;
+	}
+}

@@ -11,8 +11,10 @@
          * Initialize all blocks.
          */
         init: function() {
+            console.log('Xgenious UI Blocks: Initializing all blocks');
             this.initCounters();
             this.initAccordions();
+            this.initFaqAccordions();
             this.initTabs();
             this.initProgressBars();
             this.initAnimations();
@@ -82,6 +84,48 @@
                     $content.slideToggle(300);
                 });
             });
+        },
+
+        /**
+         * Initialize FAQ accordion blocks.
+         */
+        initFaqAccordions: function() {
+            console.log('Xgenious UI Blocks: Initializing FAQ accordions');
+
+            // Use event delegation - CSS handles the animation
+            $(document).on('click', '.xg-faq-accordion .faq-question', function(e) {
+                e.preventDefault();
+
+                const $question = $(this);
+                const $item = $question.closest('.faq-item');
+                const $accordion = $item.closest('.xg-faq-accordion');
+                const faqId = $item.data('faq-id');
+                const isCurrentlyOpen = $item.hasClass('is-open');
+
+                console.log('FAQ #' + faqId + ' clicked!');
+
+                // Close all other FAQ items in this accordion
+                $accordion.find('.faq-item').not($item).each(function() {
+                    const $otherItem = $(this);
+                    const $otherQuestion = $otherItem.find('.faq-question');
+                    $otherItem.removeClass('is-open');
+                    $otherQuestion.attr('aria-expanded', 'false');
+                    console.log('Closing FAQ #' + $otherItem.data('faq-id'));
+                });
+
+                // Toggle the clicked item
+                if (isCurrentlyOpen) {
+                    $item.removeClass('is-open');
+                    $question.attr('aria-expanded', 'false');
+                    console.log('Closing FAQ #' + faqId);
+                } else {
+                    $item.addClass('is-open');
+                    $question.attr('aria-expanded', 'true');
+                    console.log('Opening FAQ #' + faqId);
+                }
+            });
+
+            console.log('FAQ accordion initialized with CSS transitions');
         },
 
         /**
@@ -205,6 +249,7 @@
 
     // Initialize on document ready
     $(document).ready(function() {
+        console.log('Xgenious UI Blocks: Document ready');
         XgeniousUIBlocks.init();
     });
 

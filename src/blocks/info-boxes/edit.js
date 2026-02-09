@@ -179,7 +179,7 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
 
             <div {...blockProps}>
-                <div className={fullWidth ? '' : 'xg-container'}>
+                <div className="info-boxes-container">
                     <div className="info-boxes-wrapper">
                         {/* Left Column - Heading */}
                         <div className="info-boxes-heading">

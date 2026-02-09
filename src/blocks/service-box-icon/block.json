@@ -1,0 +1,128 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/service-box-icon",
+	"version": "1.0.0",
+	"title": "Service Box with Icon",
+	"category": "xgenious-ui",
+	"icon": "grid-view",
+	"description": "Display services with icons, titles and descriptions in a clean grid layout",
+	"keywords": ["service", "box", "icon", "grid", "features"],
+	"textdomain": "xgenious-ui-blocks",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Webflow Solutions That Deliver Real Results"
+		},
+		"services": {
+			"type": "array",
+			"default": [
+				{
+					"iconType": "dashicon",
+					"icon": "admin-customizer",
+					"iconImage": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Webflow Custom Development",
+					"description": "Custom features, clean code, and pixel-Perfect results in Webflow."
+				},
+				{
+					"iconType": "dashicon",
+					"icon": "admin-users",
+					"iconImage": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Figma to Webflow Development Services",
+					"description": "From design to live site — fast, accurate, And code-free."
+				},
+				{
+					"iconType": "dashicon",
+					"icon": "cart",
+					"iconImage": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Webflow E-commerce Development",
+					"description": "Sell smarter with a fully customized Webflow e-commerce solution."
+				},
+				{
+					"iconType": "dashicon",
+					"icon": "smartphone",
+					"iconImage": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Webflow Mobile Apps Development",
+					"description": "Mobile app front-ends designed visually. Delivered fast."
+				},
+				{
+					"iconType": "dashicon",
+					"icon": "admin-plugins",
+					"iconImage": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Webflow Integration Solutions",
+					"description": "Custom Webflow integrations for CRM, Analytics, payments, and more."
+				},
+				{
+					"iconType": "dashicon",
+					"icon": "admin-tools",
+					"iconImage": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Webflow Website Maintenance",
+					"description": "We handle the updates — so you can focus on your business."
+				}
+			]
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"boxBackgroundColor": {
+			"type": "string",
+			"default": "#F5F5F5"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

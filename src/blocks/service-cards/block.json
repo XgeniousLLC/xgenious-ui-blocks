@@ -1,0 +1,79 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/service-cards",
+	"version": "1.0.0",
+	"title": "Service Cards",
+	"category": "xgenious-ui",
+	"description": "Showcase services with image, title and description in a grid layout",
+	"keywords": ["services", "cards", "grid", "features", "showcase"],
+	"textdomain": "xgenious-ui-blocks",
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Web design & development For all touchpoints"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"services": {
+			"type": "array",
+			"default": [
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "Website design & Re-design",
+					"description": "User Research uncovers behaviors, motivations, and challenges to create experiences that truly meet real user needs."
+				},
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "Functionalities",
+					"description": "User Research uncovers behaviors, motivations, and challenges to create experiences that truly meet real user needs."
+				},
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "Full-Stack Web Development",
+					"description": "User Research uncovers behaviors, motivations, and challenges to create experiences that truly meet real user needs."
+				},
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "CMS Development",
+					"description": "User Research uncovers behaviors, motivations, and challenges to create experiences that truly meet real user needs."
+				},
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "E-commerce Development",
+					"description": "User Research uncovers behaviors, motivations, and challenges to create experiences that truly meet real user needs."
+				},
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "Speed Optimization",
+					"description": "User Research uncovers behaviors, motivations, and challenges to create experiences that truly meet real user needs."
+				}
+			]
+		},
+		"cardTitleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"cardDescColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"cardBgColor": {
+			"type": "string",
+			"default": "#ffffff"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

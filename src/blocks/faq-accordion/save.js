@@ -1,0 +1,107 @@
+/**
+ * FAQ Accordion Block - Save Component
+ */
+
+import { useBlockProps, RichText } from '@wordpress/block-editor';
+
+export default function save({ attributes }) {
+	const {
+		sectionTitle,
+		faqs,
+		backgroundColor,
+		faqBackgroundColor,
+		titleColor,
+		questionColor,
+		answerColor,
+		paddingTop,
+		paddingBottom,
+		enableSchema,
+	} = attributes;
+
+	const blockProps = useBlockProps.save({
+		className: 'xg-faq-accordion',
+		style: {
+			backgroundColor,
+			paddingTop: `${paddingTop}px`,
+			paddingBottom: `${paddingBottom}px`,
+		},
+	});
+
+	// Generate Schema.org FAQPage markup
+	const schemaMarkup = enableSchema ? {
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": faqs
+			.filter(faq => faq.question && faq.answer)
+			.map(faq => ({
+				"@type": "Question",
+				"name": faq.question,
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": faq.answer
+				}
+			}))
+	} : null;
+
+	return (
+		<div {...blockProps}>
+			{/* Schema Markup */}
+			{enableSchema && schemaMarkup && schemaMarkup.mainEntity.length > 0 && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+				/>
+			)}
+
+			<div className="faq-accordion-container">
+				<div className="faq-layout">
+					{/* Section Title */}
+					<div className="faq-title-section">
+						{sectionTitle && (
+							<RichText.Content
+								tagName="h2"
+								className="section-title"
+								value={sectionTitle}
+								style={{ color: titleColor }}
+							/>
+						)}
+					</div>
+
+					{/* FAQs List */}
+					<div className="faq-list">
+						{faqs.map((faq, index) => (
+							<div
+								key={index}
+								className="faq-item"
+								data-faq-id={index}
+								style={{ backgroundColor: faqBackgroundColor }}
+								itemScope
+								itemProp="mainEntity"
+								itemType="https://schema.org/Question"
+							>
+								<button
+									className="faq-question"
+									aria-expanded="false"
+									style={{ color: questionColor }}
+								>
+									<span itemProp="name">{faq.question}</span>
+									<span className="faq-icon" aria-hidden="true">↑</span>
+								</button>
+
+								<div
+									className="faq-answer"
+									style={{ color: answerColor }}
+									itemScope
+									itemProp="acceptedAnswer"
+									itemType="https://schema.org/Answer"
+								>
+									{faq.answer && <p itemProp="text">{faq.answer}</p>}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}

@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/faq-accordion",
+	"version": "1.0.0",
+	"title": "FAQ Accordion",
+	"category": "xgenious-ui",
+	"icon": "editor-help",
+	"description": "FAQ accordion with Schema.org markup for SEO",
+	"keywords": ["faq", "accordion", "question", "answer", "schema"],
+	"textdomain": "xgenious-ui-blocks",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Frequently Asked Question"
+		},
+		"faqs": {
+			"type": "array",
+			"default": [
+				{
+					"question": "Does webflow support custom code?",
+					"answer": "",
+					"isOpen": false
+				},
+				{
+					"question": "What is Webflow?",
+					"answer": "Webflow is a no-code visual development platform that allows you to design, build, and launch fully responsive websites without relying on traditional coding.",
+					"isOpen": false
+				},
+				{
+					"question": "What is Webflow?",
+					"answer": "",
+					"isOpen": false
+				},
+				{
+					"question": "What is Webflow?",
+					"answer": "",
+					"isOpen": false
+				},
+				{
+					"question": "What is Webflow?",
+					"answer": "",
+					"isOpen": false
+				}
+			]
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"faqBackgroundColor": {
+			"type": "string",
+			"default": "#F5F5F5"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"questionColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"answerColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"enableSchema": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

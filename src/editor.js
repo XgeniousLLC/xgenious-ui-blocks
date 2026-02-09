@@ -37,6 +37,12 @@ import './blocks/call-to-action';
 import './blocks/accordion';
 import './blocks/tabs';
 import './blocks/progress-bar';
+import './blocks/downloads-grid';
+import './blocks/service-cards';
+import './blocks/work-showcase';
+import './blocks/service-box-icon';
+import './blocks/template-grid';
+import './blocks/faq-accordion';
 
 // Global editor configuration
 console.log('Xgenious UI Blocks - Editor loaded');

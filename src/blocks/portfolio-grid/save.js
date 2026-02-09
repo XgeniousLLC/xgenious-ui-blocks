@@ -32,7 +32,7 @@ export default function save({ attributes }) {
 
     return (
         <div {...blockProps}>
-            <div className={fullWidth ? '' : 'xg-container'}>
+            <div className="portfolio-grid-container">
                 {/* Header */}
                 <div className="portfolio-header">
                     {heading && (

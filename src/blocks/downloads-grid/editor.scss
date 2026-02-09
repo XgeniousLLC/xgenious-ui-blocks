@@ -1,0 +1,96 @@
+/**
+ * Downloads Grid Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-downloads-grid {
+	.downloads-grid-notice {
+		background: #fff3cd;
+		border: 2px solid #ffc107;
+		border-radius: 8px;
+		padding: 20px;
+		margin-bottom: 20px;
+
+		p {
+			margin: 0 0 10px;
+			color: #856404;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.downloads-grid-preview {
+		min-height: 200px;
+	}
+
+	.downloads-empty-placeholder,
+	.downloads-error-placeholder,
+	.downloads-loading-placeholder {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 60px 20px;
+		background: #f0f0f0;
+		border: 2px dashed #ccc;
+		border-radius: 12px;
+		min-height: 300px;
+
+		.dashicons {
+			font-size: 64px;
+			width: 64px;
+			height: 64px;
+			color: #999;
+			margin-bottom: 16px;
+		}
+
+		p {
+			font-size: 16px;
+			color: #666;
+			margin: 0;
+		}
+	}
+
+	.downloads-error-placeholder {
+		background: #fee;
+		border-color: #fcc;
+
+		.dashicons {
+			color: #c33;
+		}
+
+		p {
+			color: #c33;
+		}
+	}
+
+	.downloads-loading-placeholder {
+		.dashicons.spin {
+			animation: rotation 1s infinite linear;
+		}
+	}
+
+	@keyframes rotation {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(359deg);
+		}
+	}
+
+	// Inherit frontend styles for preview
+	.xg-downloads-grid {
+		.download-card-link {
+			pointer-events: none;
+			cursor: default;
+		}
+
+		.filter-button,
+		.page-number {
+			pointer-events: none;
+			cursor: default;
+		}
+	}
+}

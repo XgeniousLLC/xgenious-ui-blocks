@@ -1,0 +1,16 @@
+/**
+ * FAQ Accordion Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-faq-accordion {
+	.section-title {
+		&:focus {
+			outline: 2px solid #007cba;
+			outline-offset: 2px;
+		}
+	}
+
+	.faq-question {
+		cursor: pointer;
+	}
+}

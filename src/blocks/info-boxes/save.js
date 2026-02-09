@@ -30,7 +30,7 @@ export default function save({ attributes }) {
 
     return (
         <div {...blockProps}>
-            <div className={fullWidth ? '' : 'xg-container'}>
+            <div className="info-boxes-container">
                 <div className="info-boxes-wrapper">
                     {/* Left Column - Heading */}
                     <div className="info-boxes-heading">

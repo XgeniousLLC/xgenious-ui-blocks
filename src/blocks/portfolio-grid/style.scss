@@ -5,10 +5,11 @@
 .xg-portfolio-grid {
     position: relative;
 
-    /* Full Width Option */
-    > div:not(.xg-container) {
-        padding-left: var(--xg-container-padding, 20px);
-        padding-right: var(--xg-container-padding, 20px);
+    /* Container */
+    .portfolio-grid-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
     }
 
     /* Header */

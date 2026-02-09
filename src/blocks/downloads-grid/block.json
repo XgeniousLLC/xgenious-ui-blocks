@@ -1,0 +1,74 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/downloads-grid",
+	"version": "1.0.0",
+	"title": "Downloads Grid",
+	"category": "xgenious-ui",
+	"description": "Display downloads from custom post type with filtering and pagination",
+	"keywords": ["downloads", "grid", "products", "portfolio", "showcase"],
+	"textdomain": "xgenious-ui-blocks",
+	"attributes": {
+		"postsPerPage": {
+			"type": "number",
+			"default": 6
+		},
+		"columns": {
+			"type": "number",
+			"default": 2
+		},
+		"showFilters": {
+			"type": "boolean",
+			"default": true
+		},
+		"showPagination": {
+			"type": "boolean",
+			"default": true
+		},
+		"selectedCategory": {
+			"type": "string",
+			"default": ""
+		},
+		"filterBgColor": {
+			"type": "string",
+			"default": "#ea7c69"
+		},
+		"filterTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"cardBgColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"paginationActiveColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"paginationColor": {
+			"type": "string",
+			"default": "#999999"
+		},
+		"showPrice": {
+			"type": "boolean",
+			"default": true
+		},
+		"showPurchaseButton": {
+			"type": "boolean",
+			"default": false
+		},
+		"priceColor": {
+			"type": "string",
+			"default": "#ea7c69"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"render": "file:./render.php"
+}

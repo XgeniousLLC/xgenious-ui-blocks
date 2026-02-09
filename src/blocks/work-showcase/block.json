@@ -1,0 +1,93 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/work-showcase",
+	"version": "1.0.0",
+	"title": "Work Showcase",
+	"category": "xgenious-ui",
+	"description": "Showcase portfolio projects with images, titles and gradient backgrounds",
+	"keywords": ["portfolio", "showcase", "work", "projects", "gallery"],
+	"textdomain": "xgenious-ui-blocks",
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Showcasing Our Best Work"
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "View All Portfolio"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"showButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"projects": {
+			"type": "array",
+			"default": [
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "Xilancer",
+					"subtitle": "Freelancer Marketplace Platform",
+					"link": "",
+					"gradientColor": "#7B9FF8"
+				},
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "Taskip",
+					"subtitle": "Client Portal Software for Agencies and Freelancers",
+					"link": "",
+					"gradientColor": "#6ACFC7"
+				},
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "Prohandy",
+					"subtitle": "Home Service Provider Marketplace Platform",
+					"link": "",
+					"gradientColor": "#7B9FF8"
+				},
+				{
+					"image": { "url": "", "id": 0, "alt": "" },
+					"title": "Nazmart",
+					"subtitle": "Nazmart – Multi-Tenancy eCommerce Platform (SAAS)",
+					"link": "",
+					"gradientColor": "#F8A8A8"
+				}
+			]
+		},
+		"bgColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"buttonBgColor": {
+			"type": "string",
+			"default": "#ea7c69"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"cardTitleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"cardSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

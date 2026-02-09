@@ -1,0 +1,20 @@
+/**
+ * Service Box with Icon Block - Editor Styles
+ */
+
+.wp-block-xgenious-ui-blocks-service-box-icon {
+	.section-title {
+		&:focus {
+			outline: 2px solid #007cba;
+			outline-offset: 2px;
+		}
+	}
+
+	.service-box {
+		cursor: default;
+	}
+
+	.service-icon {
+		pointer-events: none;
+	}
+}

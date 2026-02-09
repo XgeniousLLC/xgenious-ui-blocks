@@ -245,6 +245,48 @@ class Blocks_Loader {
                 'icon' => 'minus',
                 'keywords' => ['progress', 'bar', 'skill'],
             ],
+            'downloads-grid' => [
+                'title' => __('Downloads Grid', 'xgenious-ui-blocks'),
+                'description' => __('Display downloads from custom post type with filtering and pagination', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'download',
+                'keywords' => ['downloads', 'grid', 'products', 'portfolio', 'showcase', 'dynamic'],
+            ],
+            'service-cards' => [
+                'title' => __('Service Cards', 'xgenious-ui-blocks'),
+                'description' => __('Showcase services with image, title and description in a grid layout', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'grid-view',
+                'keywords' => ['services', 'cards', 'grid', 'features', 'showcase'],
+            ],
+            'work-showcase' => [
+                'title' => __('Work Showcase', 'xgenious-ui-blocks'),
+                'description' => __('Showcase portfolio projects with images, titles and gradient backgrounds', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'portfolio',
+                'keywords' => ['portfolio', 'showcase', 'work', 'projects', 'gallery'],
+            ],
+            'service-box-icon' => [
+                'title' => __('Service Box with Icon', 'xgenious-ui-blocks'),
+                'description' => __('Display services with icons, titles and descriptions in a clean grid layout', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'grid-view',
+                'keywords' => ['service', 'box', 'icon', 'grid', 'features'],
+            ],
+            'template-grid' => [
+                'title' => __('Template Grid', 'xgenious-ui-blocks'),
+                'description' => __('Display templates or products in a grid with images, titles and descriptions', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'grid-view',
+                'keywords' => ['template', 'grid', 'product', 'showcase', 'portfolio'],
+            ],
+            'faq-accordion' => [
+                'title' => __('FAQ Accordion', 'xgenious-ui-blocks'),
+                'description' => __('Display FAQs in an accordion layout with Schema.org markup for SEO', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'list-view',
+                'keywords' => ['faq', 'accordion', 'questions', 'answers', 'schema', 'seo'],
+            ],
         ];
 
         // Allow filtering of blocks

@@ -1,0 +1,85 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xgenious-ui-blocks/template-grid",
+	"version": "1.0.0",
+	"title": "Template Grid",
+	"category": "xgenious-ui",
+	"icon": "grid-view",
+	"description": "Display templates or products in a grid with images, titles and descriptions",
+	"keywords": ["template", "grid", "product", "showcase", "portfolio"],
+	"textdomain": "xgenious-ui-blocks",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our Premium Template"
+		},
+		"templates": {
+			"type": "array",
+			"default": [
+				{
+					"image": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Archiflow",
+					"subtitle": "Home architecture Webflow Template"
+				},
+				{
+					"image": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Farmex",
+					"subtitle": "Handyman & Home services Marketplace"
+				},
+				{
+					"image": {
+						"id": null,
+						"url": "",
+						"alt": ""
+					},
+					"title": "Prohandy",
+					"subtitle": "Handyman & Home services Marketplace"
+				}
+			]
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#F5F5F5"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"subtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"cardBackgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.scss",
+	"style": "file:./style.scss"
+}

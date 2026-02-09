@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Accordion Test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .xg-faq-accordion {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+        .faq-accordion-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .faq-title-section {
+            position: sticky;
+            top: 100px;
+        }
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+            color: #1a1a1a;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .faq-item {
+            background: #f5f5f5;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-item.is-open .faq-icon {
+            transform: rotate(180deg);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 24px;
+            background: transparent;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #1a1a1a;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            opacity: 0.8;
+        }
+        .faq-icon {
+            flex-shrink: 0;
+            font-size: 20px;
+            line-height: 1;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .faq-answer {
+            padding: 0 24px 24px;
+            color: #666666;
+        }
+        .faq-answer p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="xg-faq-accordion">
+        <div class="faq-accordion-container">
+            <div class="faq-layout">
+                <!-- Section Title -->
+                <div class="faq-title-section">
+                    <h2 class="section-title">Frequently Asked Question</h2>
+                </div>
+
+                <!-- FAQs List -->
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Does webflow support custom code?</span>
+                            <span class="faq-icon" aria-hidden="true">↑</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, Webflow supports custom code through various methods.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What is Webflow?</span>
+                            <span class="faq-icon" aria-hidden="true">↑</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Webflow is a no-code visual development platform that allows you to design, build, and launch fully responsive websites without relying on traditional coding.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How much does Webflow cost?</span>
+                            <span class="faq-icon" aria-hidden="true">↑</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Webflow offers various pricing plans starting from free to enterprise-level subscriptions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Accordion Script (same as in frontend.js)
+        jQuery(document).ready(function($) {
+            console.log('FAQ Accordion script loaded');
+
+            $('.xg-faq-accordion .faq-item').each(function() {
+                const $item = $(this);
+                const $question = $item.find('.faq-question');
+                const $answer = $item.find('.faq-answer');
+
+                if (!$question.length || !$answer.length) return;
+
+                // Initially hide answer
+                $answer.hide();
+                console.log('Hiding answer for:', $question.text().trim());
+
+                $question.on('click', function(e) {
+                    e.preventDefault();
+                    console.log('Clicked:', $question.text().trim());
+
+                    const isOpen = $item.hasClass('is-open');
+
+                    // Toggle current FAQ
+                    if (isOpen) {
+                        console.log('Closing FAQ');
+                        $item.removeClass('is-open');
+                        $answer.slideUp(300);
+                        $question.attr('aria-expanded', 'false');
+                    } else {
+                        console.log('Opening FAQ');
+                        $item.addClass('is-open');
+                        $answer.slideDown(300);
+                        $question.attr('aria-expanded', 'true');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
