@@ -81,7 +81,7 @@
         },
         "boxBackgroundColor": {
             "type": "string",
-            "default": "#F5F6F7"
+            "default": "#EFEDF0"
         },
         "textColor": {
             "type": "string",

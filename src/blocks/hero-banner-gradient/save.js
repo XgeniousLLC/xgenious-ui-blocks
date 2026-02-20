@@ -29,7 +29,7 @@ export default function save({ attributes }) {
     } = attributes;
 
     const blockProps = useBlockProps.save({
-        className: `xg-hero-banner align-${contentAlignment} ${fullWidth ? 'alignfull' : ''}`,
+        className: `xg-hero-banner xg-hero-gradient-wrap align-${contentAlignment} ${fullWidth ? 'alignfull' : ''}`,
         style: {
             backgroundImage: backgroundImage.url ? `url(${backgroundImage.url})` : 'none',
             backgroundSize: 'cover',
@@ -60,9 +60,11 @@ export default function save({ attributes }) {
                         <div className="hero-content">
                             {/* Badge */}
                             {badge && (
-                                <div className="xg-badge hero-badge">
-                                    <span>{badge}</span>
-                                    {badgeIcon && <span className="badge-icon">{badgeIcon}</span>}
+                                <div className="hero-badge-wrap">
+                                    <div className="xg-badge hero-badge">
+                                        <span>{badge}</span>
+                                        {badgeIcon && <span className="badge-icon">{badgeIcon}</span>}
+                                    </div>
                                 </div>
                             )}
 

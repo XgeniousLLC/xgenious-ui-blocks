@@ -64,7 +64,7 @@ export default function Edit({ attributes, setAttributes }) {
 
     const updateTestimonial = (index, key, value) => {
         const updatedTestimonials = [...testimonials];
-        updatedTestimonials[index][key] = value;
+        updatedTestimonials[index] = { ...updatedTestimonials[index], [key]: value };
         setAttributes({ testimonials: updatedTestimonials });
     };
 
@@ -139,47 +139,116 @@ export default function Edit({ attributes, setAttributes }) {
                     />
                 </PanelBody>
 
-                {/* Individual Testimonial Settings */}
-                {testimonials.map((testimonial, index) => (
-                    <PanelBody
-                        key={index}
-                        title={`${__('Testimonial', 'xgenious-ui-blocks')} ${index + 1}: ${testimonial.authorName || __('Untitled', 'xgenious-ui-blocks')}`}
-                        initialOpen={false}
-                    >
-                        <ToggleControl
-                            label={__('Enable Video', 'xgenious-ui-blocks')}
-                            checked={testimonial.hasVideo}
-                            onChange={(value) => updateTestimonial(index, 'hasVideo', value)}
-                            help={__('Show video thumbnail with play button', 'xgenious-ui-blocks')}
-                        />
-
-                        {testimonial.hasVideo && (
-                            <TextControl
-                                label={__('Video URL', 'xgenious-ui-blocks')}
-                                value={testimonial.videoUrl}
-                                onChange={(value) => updateTestimonial(index, 'videoUrl', value)}
-                                placeholder="https://www.youtube.com/watch?v=..."
-                                help={__('YouTube, Vimeo, or direct video URL', 'xgenious-ui-blocks')}
+                <PanelBody title={__('Manage Testimonials', 'xgenious-ui-blocks')} initialOpen={false}>
+                    {testimonials.map((testimonial, index) => (
+                        <PanelBody
+                            key={index}
+                            title={`${__('Testimonial', 'xgenious-ui-blocks')} ${index + 1}: ${testimonial.authorName || __('Untitled', 'xgenious-ui-blocks')}`}
+                            initialOpen={false}
+                        >
+                            <TextareaControl
+                                label={__('Quote', 'xgenious-ui-blocks')}
+                                value={testimonial.quote}
+                                onChange={(value) => updateTestimonial(index, 'quote', value)}
+                                rows={3}
                             />
-                        )}
 
-                        <div style={{ marginTop: '16px' }}>
-                            <Button
-                                isDestructive
-                                variant="secondary"
-                                onClick={() => removeTestimonial(index)}
-                            >
-                                {__('Remove Testimonial', 'xgenious-ui-blocks')}
-                            </Button>
-                        </div>
-                    </PanelBody>
-                ))}
+                            <TextControl
+                                label={__('Author Name', 'xgenious-ui-blocks')}
+                                value={testimonial.authorName}
+                                onChange={(value) => updateTestimonial(index, 'authorName', value)}
+                            />
+
+                            <TextControl
+                                label={__('Position', 'xgenious-ui-blocks')}
+                                value={testimonial.authorPosition}
+                                onChange={(value) => updateTestimonial(index, 'authorPosition', value)}
+                            />
+
+                            <p style={{ fontWeight: 600, marginBottom: '8px' }}>{__('Author Image', 'xgenious-ui-blocks')}</p>
+                            <MediaUploadCheck>
+                                <MediaUpload
+                                    onSelect={(media) =>
+                                        updateTestimonial(index, 'authorImage', {
+                                            id: media.id,
+                                            url: media.url,
+                                            alt: media.alt || '',
+                                        })
+                                    }
+                                    allowedTypes={['image']}
+                                    value={testimonial.authorImage?.id}
+                                    render={({ open }) => (
+                                        <div style={{ marginBottom: '12px' }}>
+                                            {testimonial.authorImage?.url ? (
+                                                <div>
+                                                    <img
+                                                        src={testimonial.authorImage.url}
+                                                        alt={testimonial.authorImage.alt}
+                                                        style={{ width: '100%', marginBottom: '8px', borderRadius: '8px' }}
+                                                    />
+                                                    <Button variant="secondary" onClick={open} style={{ marginRight: '8px' }}>
+                                                        {__('Replace Image', 'xgenious-ui-blocks')}
+                                                    </Button>
+                                                    <Button
+                                                        isDestructive
+                                                        onClick={() =>
+                                                            updateTestimonial(index, 'authorImage', {
+                                                                id: null,
+                                                                url: '',
+                                                                alt: '',
+                                                            })
+                                                        }
+                                                    >
+                                                        {__('Remove', 'xgenious-ui-blocks')}
+                                                    </Button>
+                                                </div>
+                                            ) : (
+                                                <Button variant="primary" onClick={open}>
+                                                    {__('Upload Image', 'xgenious-ui-blocks')}
+                                                </Button>
+                                            )}
+                                        </div>
+                                    )}
+                                />
+                            </MediaUploadCheck>
+
+                            <ToggleControl
+                                label={__('Enable Video', 'xgenious-ui-blocks')}
+                                checked={testimonial.hasVideo}
+                                onChange={(value) => updateTestimonial(index, 'hasVideo', value)}
+                                help={__('Show play button overlay on image', 'xgenious-ui-blocks')}
+                            />
+
+                            {testimonial.hasVideo && (
+                                <TextControl
+                                    label={__('Video URL', 'xgenious-ui-blocks')}
+                                    value={testimonial.videoUrl}
+                                    onChange={(value) => updateTestimonial(index, 'videoUrl', value)}
+                                    placeholder="https://www.youtube.com/watch?v=..."
+                                    help={__('YouTube, Vimeo, or direct video URL', 'xgenious-ui-blocks')}
+                                />
+                            )}
+
+                            <div style={{ marginTop: '12px' }}>
+                                <Button
+                                    isDestructive
+                                    variant="secondary"
+                                    onClick={() => removeTestimonial(index)}
+                                >
+                                    {__('Remove Testimonial', 'xgenious-ui-blocks')}
+                                </Button>
+                            </div>
+                        </PanelBody>
+                    ))}
+                    <Button variant="primary" onClick={addTestimonial} style={{ marginTop: '12px' }}>
+                        {__('Add Testimonial', 'xgenious-ui-blocks')}
+                    </Button>
+                </PanelBody>
             </InspectorControls>
 
             <div {...blockProps}>
                 <div className={fullWidth ? '' : 'xg-container'}>
                     <div className="testimonial-slider-header">
-                        {/* Heading */}
                         <RichText
                             tagName="h2"
                             className="testimonial-slider-heading"
@@ -189,14 +258,12 @@ export default function Edit({ attributes, setAttributes }) {
                             style={{ color: headingColor }}
                         />
 
-                        {/* Navigation (Static in Editor) */}
                         <div className="testimonial-nav">
                             <button className="nav-btn nav-prev">←</button>
                             <button className="nav-btn nav-next">→</button>
                         </div>
                     </div>
 
-                    {/* Testimonials Grid */}
                     <div className={`testimonial-slider-wrapper slides-${slidesPerView}`}>
                         {testimonials.map((testimonial, index) => (
                             <div
@@ -204,13 +271,14 @@ export default function Edit({ attributes, setAttributes }) {
                                 className="testimonial-slide"
                                 style={{ backgroundColor: cardBackgroundColor }}
                             >
+                              <div className="testimonial-slide-inner">
                                 <div className="testimonial-content">
-                                    {/* Quote Icon */}
                                     <div className="quote-icon" style={{ color: quoteIconColor }}>
-                                        "
+                                        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.75075 0H12L6.07808 14H0L2.75075 0ZM14.7508 0H24L18.0901 14H12L14.7508 0Z" fill="currentColor"/>
+                                        </svg>
                                     </div>
 
-                                    {/* Quote Text */}
                                     <TextareaControl
                                         className="testimonial-quote-input"
                                         value={testimonial.quote}
@@ -219,7 +287,6 @@ export default function Edit({ attributes, setAttributes }) {
                                         rows={4}
                                     />
 
-                                    {/* Author Info */}
                                     <div className="testimonial-author-info">
                                         <TextControl
                                             className="author-name-input"
@@ -236,7 +303,6 @@ export default function Edit({ attributes, setAttributes }) {
                                     </div>
                                 </div>
 
-                                {/* Author Image/Video */}
                                 <div className="testimonial-media">
                                     <MediaUploadCheck>
                                         <MediaUpload
@@ -248,10 +314,10 @@ export default function Edit({ attributes, setAttributes }) {
                                                 })
                                             }
                                             allowedTypes={['image']}
-                                            value={testimonial.authorImage.id}
+                                            value={testimonial.authorImage?.id}
                                             render={({ open }) => (
                                                 <div className="media-wrapper">
-                                                    {testimonial.authorImage.url ? (
+                                                    {testimonial.authorImage?.url ? (
                                                         <>
                                                             <img
                                                                 src={testimonial.authorImage.url}
@@ -260,7 +326,11 @@ export default function Edit({ attributes, setAttributes }) {
                                                             />
                                                             {testimonial.hasVideo && (
                                                                 <div className="play-button-overlay">
-                                                                    <span className="play-icon">▶</span>
+                                                                    <span className="play-icon">
+                                                                    <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M2.28547 0.308689C1.02329 -0.415315 0 0.177798 0 1.63238V12.3666C0 13.8226 1.02329 14.415 2.28547 13.6917L11.6677 8.31101C12.9303 7.58675 12.9303 6.41334 11.6677 5.68925L2.28547 0.308689Z" fill="currentColor"/>
+                                                                    </svg>
+                                                                </span>
                                                                 </div>
                                                             )}
                                                             <div className="media-actions">
@@ -293,6 +363,7 @@ export default function Edit({ attributes, setAttributes }) {
                                         />
                                     </MediaUploadCheck>
                                 </div>
+                              </div>
                             </div>
                         ))}
                     </div>

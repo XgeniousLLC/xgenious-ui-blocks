@@ -6,8 +6,11 @@
     position: relative;
     overflow: hidden;
 
-    .xg-container.has-border {
+    .xg-container.has-top-border {
         border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .xg-container.has-bottom-border {
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
@@ -19,14 +22,20 @@
         gap: 48px;
     }
 
+    /* Inner Wrapper */
+    .logo-showcase-inner {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     /* Heading Column - Left Side */
     .logo-showcase-heading {
         flex: 0 0 auto;
         max-width: 240px;
 
         .showcase-title {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 500;
             line-height: 1.4;
             margin: 0;
             font-family: var(--xg-font-heading, 'Poppins', sans-serif);

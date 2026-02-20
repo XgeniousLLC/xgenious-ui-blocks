@@ -14,11 +14,12 @@
     /* Heading */
     .tech-stack-heading {
         font-size: 48px;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 1.2;
-        margin: 0 0 60px 0;
+        margin: 0 auto 60px auto;
         text-align: center;
-        font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+        max-width: 750px;
+        font-family: var(--xg-font-primary, 'Inter', sans-serif);
     }
 
     /* Tech Grid */
@@ -63,6 +64,8 @@
     /* Tech Item */
     .tech-item {
         border: 1px solid;
+        margin-right: -1px;
+        margin-bottom: -1px;
         padding: 24px 16px;
         display: flex;
         flex-direction: column;

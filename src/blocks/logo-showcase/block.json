@@ -56,7 +56,19 @@
             "type": "number",
             "default": 80
         },
-        "enableBorder": {
+        "innerPaddingTop": {
+            "type": "number",
+            "default": 40
+        },
+        "innerPaddingBottom": {
+            "type": "number",
+            "default": 40
+        },
+        "showTopBorder": {
+            "type": "boolean",
+            "default": true
+        },
+        "showBottomBorder": {
             "type": "boolean",
             "default": true
         },

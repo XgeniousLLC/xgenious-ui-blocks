@@ -45,7 +45,7 @@ export default function Edit({ attributes, setAttributes }) {
     } = attributes;
 
     const blockProps = useBlockProps({
-        className: `xg-hero-banner align-${contentAlignment} ${fullWidth ? 'alignfull' : ''}`,
+        className: `xg-hero-banner xg-hero-banner-default align-${contentAlignment} ${fullWidth ? 'alignfull' : ''}`,
         style: {
             backgroundColor,
             color: textColor,
@@ -249,7 +249,7 @@ export default function Edit({ attributes, setAttributes }) {
                 {/* Content Container */}
                 <div className="xg-container">
                     <div className="xg-row xg-align-center">
-                        <div className={`xg-col-12 ${showImage ? 'xg-col-lg-6' : 'xg-col-lg-7'}`}>
+                        <div className="xg-col-12 xg-col-lg-7">
                             <div className="hero-content">
                                 {/* Badge */}
                                 {badge && (

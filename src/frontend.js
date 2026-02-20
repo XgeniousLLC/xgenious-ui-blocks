@@ -19,6 +19,7 @@
             this.initProgressBars();
             this.initAnimations();
             this.initTestimonialSliders();
+            this.initVideoPopups();
         },
 
         /**
@@ -243,6 +244,44 @@
                         }
                     ]
                 });
+            });
+        },
+
+        /**
+         * Initialize video popups for testimonial sliders.
+         */
+        initVideoPopups: function() {
+            $(document).on('click', '.xg-testimonial-slider .play-button-overlay[data-video-url]', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var videoUrl = $(this).data('video-url');
+                var $slider = $(this).closest('.xg-testimonial-slider');
+                var $popup = $slider.find('.xg-video-popup');
+
+                if (videoUrl && $popup.length) {
+                    $popup.find('.xg-video-popup-iframe').attr('src', videoUrl);
+                    $popup.fadeIn(300);
+                    $('body').css('overflow', 'hidden');
+                }
+            });
+
+            $(document).on('click', '.xg-video-popup-close, .xg-video-popup-overlay', function() {
+                var $popup = $(this).closest('.xg-video-popup');
+                $popup.find('.xg-video-popup-iframe').attr('src', '');
+                $popup.fadeOut(300);
+                $('body').css('overflow', '');
+            });
+
+            $(document).on('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    var $popup = $('.xg-video-popup:visible');
+                    if ($popup.length) {
+                        $popup.find('.xg-video-popup-iframe').attr('src', '');
+                        $popup.fadeOut(300);
+                        $('body').css('overflow', '');
+                    }
+                }
             });
         }
     };

@@ -31,7 +31,10 @@ export default function Edit({ attributes, setAttributes }) {
         logoGap,
         paddingTop,
         paddingBottom,
-        enableBorder,
+        innerPaddingTop,
+        innerPaddingBottom,
+        showTopBorder,
+        showBottomBorder,
         grayscale,
     } = attributes;
 
@@ -138,10 +141,34 @@ export default function Edit({ attributes, setAttributes }) {
                         step={10}
                     />
 
+                    <RangeControl
+                        label={__('Inner Padding Top (px)', 'xgenious-ui-blocks')}
+                        value={innerPaddingTop}
+                        onChange={(value) => setAttributes({ innerPaddingTop: value })}
+                        min={0}
+                        max={200}
+                        step={4}
+                    />
+
+                    <RangeControl
+                        label={__('Inner Padding Bottom (px)', 'xgenious-ui-blocks')}
+                        value={innerPaddingBottom}
+                        onChange={(value) => setAttributes({ innerPaddingBottom: value })}
+                        min={0}
+                        max={200}
+                        step={4}
+                    />
+
                     <ToggleControl
-                        label={__('Enable Border', 'xgenious-ui-blocks')}
-                        checked={enableBorder}
-                        onChange={(value) => setAttributes({ enableBorder: value })}
+                        label={__('Show Top Border', 'xgenious-ui-blocks')}
+                        checked={showTopBorder}
+                        onChange={(value) => setAttributes({ showTopBorder: value })}
+                    />
+
+                    <ToggleControl
+                        label={__('Show Bottom Border', 'xgenious-ui-blocks')}
+                        checked={showBottomBorder}
+                        onChange={(value) => setAttributes({ showBottomBorder: value })}
                     />
                 </PanelBody>
 
@@ -206,35 +233,37 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
 
             <div {...blockProps}>
-                <div className={`xg-container ${enableBorder ? 'has-border' : ''}`}>
-                    <div className="xg-row">
-                        {/* Heading - Left Side */}
-                        <div className="logo-showcase-heading">
-                            <RichText
-                                tagName="h2"
-                                className="showcase-title"
-                                value={heading}
-                                onChange={(value) => setAttributes({ heading: value })}
-                                placeholder={__('Enter heading...', 'xgenious-ui-blocks')}
-                            />
-                        </div>
+                <div className={`xg-container ${showTopBorder ? 'has-top-border' : ''} ${showBottomBorder ? 'has-bottom-border' : ''}`}>
+                    <div className="logo-showcase-inner" style={{ paddingTop: `${innerPaddingTop}px`, paddingBottom: `${innerPaddingBottom}px` }}>
+                        <div className="xg-row">
+                            {/* Heading - Left Side */}
+                            <div className="logo-showcase-heading">
+                                <RichText
+                                    tagName="h2"
+                                    className="showcase-title"
+                                    value={heading}
+                                    onChange={(value) => setAttributes({ heading: value })}
+                                    placeholder={__('Enter heading...', 'xgenious-ui-blocks')}
+                                />
+                            </div>
 
-                        {/* Logos - Right Side */}
-                        <div
-                            className={`logo-showcase-grid ${logoSizeClass} ${grayscale ? 'grayscale-effect' : ''}`}
-                            style={{ gap: `${logoGap}px` }}
-                        >
-                            {logos.length > 0 ? (
-                                logos.map((logo, index) => (
-                                    <div key={index} className="logo-item">
-                                        <img src={logo.url} alt={logo.alt || `Logo ${index + 1}`} />
+                            {/* Logos - Right Side */}
+                            <div
+                                className={`logo-showcase-grid ${logoSizeClass} ${grayscale ? 'grayscale-effect' : ''}`}
+                                style={{ gap: `${logoGap}px` }}
+                            >
+                                {logos.length > 0 ? (
+                                    logos.map((logo, index) => (
+                                        <div key={index} className="logo-item">
+                                            <img src={logo.url} alt={logo.alt || `Logo ${index + 1}`} />
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div className="logo-placeholder">
+                                        <p>{__('Add logos from the sidebar', 'xgenious-ui-blocks')} →</p>
                                     </div>
-                                ))
-                            ) : (
-                                <div className="logo-placeholder">
-                                    <p>{__('Add logos from the sidebar', 'xgenious-ui-blocks')} →</p>
-                                </div>
-                            )}
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

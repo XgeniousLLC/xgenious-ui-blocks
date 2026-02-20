@@ -86,6 +86,24 @@
 }
 
 /* ========================================
+   Global Font Application
+   ======================================== */
+
+[class*="wp-block-xgenious-ui-blocks"] {
+    font-family: var(--xg-font-primary);
+}
+
+[class*="wp-block-xgenious-ui-blocks"] h1,
+[class*="wp-block-xgenious-ui-blocks"] h2,
+[class*="wp-block-xgenious-ui-blocks"] h3,
+[class*="wp-block-xgenious-ui-blocks"] h4,
+[class*="wp-block-xgenious-ui-blocks"] h5,
+[class*="wp-block-xgenious-ui-blocks"] h6,
+[class*="wp-block-xgenious-ui-blocks"] .xg-heading {
+    font-family: var(--xg-font-primary);
+}
+
+/* ========================================
    Container System
    ======================================== */
 

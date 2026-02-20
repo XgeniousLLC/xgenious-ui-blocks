@@ -4,19 +4,38 @@
 
 /* Essential Framework Variables and Styles */
 :root {
+    /* Layout */
     --xg-container-width: 1320px;
     --xg-container-padding: 20px;
     --xg-grid-gap: 30px;
+    --xg-border-radius: 8px;
+
+    /* Spacing */
     --xg-spacing-xs: 8px;
     --xg-spacing-sm: 16px;
     --xg-spacing-md: 24px;
     --xg-spacing-lg: 32px;
     --xg-spacing-xl: 48px;
+
+    /* Typography */
     --xg-heading-h1: 56px;
     --xg-font-size-base: 16px;
     --xg-font-size-lg: 18px;
+
+    /* Brand Colors */
+    --xg-color-primary: #FF7B6D;
+    --xg-color-primary-light: rgba(255, 123, 109, 0.1);
+    --xg-color-white: #ffffff;
+
+    /* Text Colors */
+    --xg-color-heading: #1a1a1a;
+    --xg-color-text: #444444;
+    --xg-color-text-muted: #666666;
     --xg-text-light: #666666;
-    --xg-border-radius: 8px;
+
+    /* Utility */
+    --xg-color-border: rgba(0, 0, 0, 0.1);
+    --xg-color-overlay: rgba(0, 0, 0, 0.05);
 }
 
 /* Container Base Styles */
@@ -81,7 +100,7 @@
 }
 
 .xg-btn-primary {
-    color: #ffffff;
+    color: var(--xg-color-white);
 }
 
 .xg-btn-ghost {
@@ -91,7 +110,7 @@
 }
 
 .xg-btn-ghost:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--xg-color-overlay);
 }
 
 /* Badge Styles */
@@ -105,8 +124,8 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 20px;
-    background: rgba(255, 123, 109, 0.1);
-    color: #FF7B6D;
+    background: var(--xg-color-primary-light);
+    color: var(--xg-color-primary);
 }
 
 /* Heading Styles */
@@ -215,7 +234,7 @@
 
     .hero-heading {
         font-size: var(--xg-heading-h1);
-        font-weight: 700;
+        font-weight: 500;
         line-height: 1.15;
         margin-bottom: var(--xg-spacing-lg);
     }
@@ -257,9 +276,9 @@
         align-items: center;
         justify-content: center;
         min-height: 300px;
-        background: rgba(0, 0, 0, 0.05);
+        background: var(--xg-color-overlay);
         border-radius: var(--xg-border-radius);
-        border: 2px dashed rgba(0, 0, 0, 0.1);
+        border: 2px dashed var(--xg-color-border);
 
         p {
             color: var(--xg-text-light);
@@ -408,6 +427,121 @@
 
         .hero-buttons {
             gap: var(--xg-spacing-xs);
+        }
+    }
+}
+
+.xg-hero-gradient-wrap {
+    position: relative;
+    z-index: 0;
+
+    &:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--xg-color-white);
+        content: '';
+        z-index: -1;
+        opacity: .7;
+    }
+
+    /* Gradient-specific overrides */
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-badge-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: var(--xg-spacing-md);
+    }
+
+    .hero-badge-wrap .xg-badge {
+        position: initial;
+        margin-bottom: 0;
+        background: transparent;
+        color: var(--xg-color-text-muted);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        border-radius: 0;
+        padding: 0 30px 0 0;
+    }
+
+    .hero-heading {
+        font-weight: 500;
+        max-width: 950px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero-description {
+        font-weight: 400;
+        max-width: 750px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero-buttons {
+        position: relative;
+        z-index: 1;
+
+        .xg-btn {
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .xg-btn-primary:hover {
+            background-color: transparent !important;
+            color: var(--xg-color-primary);
+            border-color: var(--xg-color-primary) !important;
+        }
+
+        .xg-btn-ghost:hover {
+            background-color: var(--xg-color-primary);
+            color: var(--xg-color-white);
+            border-color: transparent;
+        }
+    }
+
+    /* Left alignment override for gradient block */
+    &.align-left,
+    &.align-center {
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-badge-wrap {
+            justify-content: flex-start;
+        }
+
+        .hero-buttons {
+            justify-content: flex-start;
+        }
+    }
+
+    &.align-center {
+        .hero-content {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badge-wrap {
+            justify-content: center;
+        }
+
+        .hero-heading,
+        .hero-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            justify-content: center;
         }
     }
 }

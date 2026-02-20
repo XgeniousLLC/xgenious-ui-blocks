@@ -20,33 +20,35 @@
         }
     },
     "attributes": {
-        "headingLine1": {
+        "heading": {
             "type": "string",
-            "default": "Expert resources,"
-        },
-        "headingLine2": {
-            "type": "string",
-            "default": "Ready to work"
+            "default": "Expert resources,<br>Ready to work"
         },
         "boxes": {
             "type": "array",
             "default": [
                 {
+                    "iconType": "dashicon",
                     "icon": "clock",
+                    "iconSvg": "",
                     "iconBackgroundColor": "#FFE5E5",
                     "iconColor": "#FF6B6B",
                     "title": "Hourly",
                     "description": "We help you hire expert resources—fast, reliable, and tailored to your project requirements."
                 },
                 {
+                    "iconType": "dashicon",
                     "icon": "groups",
+                    "iconSvg": "",
                     "iconBackgroundColor": "#FFE5E5",
                     "iconColor": "#FF6B6B",
                     "title": "Resource Hiring",
                     "description": "We help you hire expert resources—fast, reliable, and tailored to your project requirements."
                 },
                 {
+                    "iconType": "dashicon",
                     "icon": "portfolio",
+                    "iconSvg": "",
                     "iconBackgroundColor": "#FFE5E5",
                     "iconColor": "#FF6B6B",
                     "title": "Project-Based",
@@ -56,7 +58,7 @@
         },
         "backgroundColor": {
             "type": "string",
-            "default": "#ffffff"
+            "default": "#EFEDF0"
         },
         "boxBackgroundColor": {
             "type": "string",
@@ -85,8 +87,7 @@
     },
     "example": {
         "attributes": {
-            "headingLine1": "Expert resources,",
-            "headingLine2": "Ready to work"
+            "heading": "Expert resources,\nReady to work"
         }
     }
 }

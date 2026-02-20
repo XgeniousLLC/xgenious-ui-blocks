@@ -42,6 +42,35 @@ class Assets_Manager {
     private function __construct() {
         add_action('enqueue_block_editor_assets', [$this, 'enqueue_editor_assets']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
+        add_filter('upload_mimes', [$this, 'allow_svg_uploads']);
+        add_filter('wp_check_filetype_and_ext', [$this, 'fix_svg_mime_type'], 10, 5);
+    }
+
+    /**
+     * Allow SVG uploads.
+     */
+    public function allow_svg_uploads($mimes) {
+        $mimes['svg'] = 'image/svg+xml';
+        $mimes['svgz'] = 'image/svg+xml';
+        return $mimes;
+    }
+
+    /**
+     * Fix SVG mime type detection.
+     */
+    public function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '') {
+        if (!empty($data['ext']) && !empty($data['type'])) {
+            return $data;
+        }
+
+        $filetype = wp_check_filetype($filename, $mimes);
+
+        if ($filetype['ext'] === 'svg') {
+            $data['ext'] = 'svg';
+            $data['type'] = 'image/svg+xml';
+        }
+
+        return $data;
     }
 
     /**
@@ -90,6 +119,13 @@ class Assets_Manager {
             );
         }
 
+        // Inject plugin asset URLs as CSS custom properties
+        $portfolio_default_bg = XGENIOUS_UI_BLOCKS_URL . 'assets/images/portfolio-default-bg.png';
+        wp_add_inline_style(
+            'xgenious-ui-blocks-editor',
+            ':root { --xg-portfolio-default-bg: url(' . esc_url($portfolio_default_bg) . '); }'
+        );
+
         // Localize script data
         wp_localize_script(
             'xgenious-ui-blocks-editor-script',
@@ -115,6 +151,13 @@ class Assets_Manager {
             XGENIOUS_UI_BLOCKS_URL . 'build/style-editor.css',
             [],
             XGENIOUS_UI_BLOCKS_VERSION
+        );
+
+        // Inject plugin asset URLs as CSS custom properties
+        $portfolio_default_bg = XGENIOUS_UI_BLOCKS_URL . 'assets/images/portfolio-default-bg.png';
+        wp_add_inline_style(
+            'xgenious-ui-blocks-frontend',
+            ':root { --xg-portfolio-default-bg: url(' . esc_url($portfolio_default_bg) . '); }'
         );
 
         // Frontend scripts

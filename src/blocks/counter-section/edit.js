@@ -36,11 +36,8 @@ export default function Edit({ attributes, setAttributes }) {
     const blockProps = useBlockProps({
         className: 'xg-counter-section',
         style: {
-            backgroundColor,
-            color: textColor,
             paddingTop: `${paddingTop}px`,
             paddingBottom: `${paddingBottom}px`,
-            borderRadius: `${borderRadius}px`,
         },
     });
 
@@ -183,7 +180,7 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
 
             <div {...blockProps}>
-                <div className="xg-container">
+                <div className="xg-container" style={{ backgroundColor, color: textColor, borderRadius: `${borderRadius}px` }}>
                     <div className="counter-section-wrapper">
                         {/* Left Column - Content */}
                         <div className="counter-section-content">

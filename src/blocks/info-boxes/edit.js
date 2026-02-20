@@ -7,6 +7,8 @@ import {
     useBlockProps,
     InspectorControls,
     RichText,
+    MediaUpload,
+    MediaUploadCheck,
 } from '@wordpress/block-editor';
 import {
     PanelBody,
@@ -16,13 +18,13 @@ import {
     ColorPicker,
     TextControl,
     SelectControl,
+    ButtonGroup,
 } from '@wordpress/components';
 import { Dashicon } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
     const {
-        headingLine1,
-        headingLine2,
+        heading,
         boxes,
         backgroundColor,
         boxBackgroundColor,
@@ -59,7 +61,9 @@ export default function Edit({ attributes, setAttributes }) {
 
     const addBox = () => {
         const newBox = {
+            iconType: 'dashicon',
             icon: 'clock',
+            iconSvg: '',
             iconBackgroundColor: '#FFE5E5',
             iconColor: '#FF6B6B',
             title: 'New Box',
@@ -75,8 +79,26 @@ export default function Edit({ attributes, setAttributes }) {
 
     const updateBox = (index, key, value) => {
         const updatedBoxes = [...boxes];
-        updatedBoxes[index][key] = value;
+        updatedBoxes[index] = { ...updatedBoxes[index], [key]: value };
         setAttributes({ boxes: updatedBoxes });
+    };
+
+    const renderIcon = (box) => {
+        if (box.iconType === 'svg' && box.iconSvg) {
+            return (
+                <span
+                    className="info-box-svg-icon"
+                    style={{ color: box.iconColor }}
+                    dangerouslySetInnerHTML={{ __html: box.iconSvg }}
+                />
+            );
+        }
+        return (
+            <Dashicon
+                icon={box.icon || 'clock'}
+                style={{ color: box.iconColor }}
+            />
+        );
     };
 
     return (
@@ -135,47 +157,147 @@ export default function Edit({ attributes, setAttributes }) {
                     />
                 </PanelBody>
 
-                {/* Individual Box Settings */}
-                {boxes.map((box, index) => (
-                    <PanelBody
-                        key={index}
-                        title={`${__('Box', 'xgenious-ui-blocks')} ${index + 1}: ${box.title || __('Untitled', 'xgenious-ui-blocks')}`}
-                        initialOpen={false}
-                    >
-                        <SelectControl
-                            label={__('Icon', 'xgenious-ui-blocks')}
-                            value={box.icon}
-                            options={iconOptions}
-                            onChange={(value) => updateBox(index, 'icon', value)}
-                        />
+                <PanelBody title={__('Manage Boxes', 'xgenious-ui-blocks')} initialOpen={false}>
+                    {boxes.map((box, index) => (
+                        <PanelBody
+                            key={index}
+                            title={`${__('Box', 'xgenious-ui-blocks')} ${index + 1}: ${box.title || __('Untitled', 'xgenious-ui-blocks')}`}
+                            initialOpen={false}
+                        >
+                            <TextControl
+                                label={__('Title', 'xgenious-ui-blocks')}
+                                value={box.title}
+                                onChange={(value) => updateBox(index, 'title', value)}
+                            />
 
-                        <p>{__('Icon Background Color', 'xgenious-ui-blocks')}</p>
-                        <ColorPicker
-                            color={box.iconBackgroundColor}
-                            onChangeComplete={(value) =>
-                                updateBox(index, 'iconBackgroundColor', value.hex)
-                            }
-                        />
+                            <TextControl
+                                label={__('Description', 'xgenious-ui-blocks')}
+                                value={box.description}
+                                onChange={(value) => updateBox(index, 'description', value)}
+                            />
 
-                        <p style={{ marginTop: '16px' }}>{__('Icon Color', 'xgenious-ui-blocks')}</p>
-                        <ColorPicker
-                            color={box.iconColor}
-                            onChangeComplete={(value) =>
-                                updateBox(index, 'iconColor', value.hex)
-                            }
-                        />
+                            <p style={{ marginBottom: '8px', fontWeight: 600 }}>{__('Icon Type', 'xgenious-ui-blocks')}</p>
+                            <ButtonGroup style={{ marginBottom: '16px' }}>
+                                <Button
+                                    variant={(!box.iconType || box.iconType === 'dashicon') ? 'primary' : 'secondary'}
+                                    onClick={() => updateBox(index, 'iconType', 'dashicon')}
+                                >
+                                    {__('Dashicon', 'xgenious-ui-blocks')}
+                                </Button>
+                                <Button
+                                    variant={box.iconType === 'svg' ? 'primary' : 'secondary'}
+                                    onClick={() => updateBox(index, 'iconType', 'svg')}
+                                >
+                                    {__('SVG Upload', 'xgenious-ui-blocks')}
+                                </Button>
+                            </ButtonGroup>
 
-                        <div style={{ marginTop: '16px' }}>
-                            <Button
-                                isDestructive
-                                variant="secondary"
-                                onClick={() => removeBox(index)}
-                            >
-                                {__('Remove Box', 'xgenious-ui-blocks')}
-                            </Button>
-                        </div>
-                    </PanelBody>
-                ))}
+                            {(!box.iconType || box.iconType === 'dashicon') && (
+                                <SelectControl
+                                    label={__('Icon', 'xgenious-ui-blocks')}
+                                    value={box.icon}
+                                    options={iconOptions}
+                                    onChange={(value) => updateBox(index, 'icon', value)}
+                                />
+                            )}
+
+                            {box.iconType === 'svg' && (
+                                <div style={{ marginBottom: '12px' }}>
+                                    {box.iconSvg ? (
+                                        <div>
+                                            <div
+                                                style={{
+                                                    width: '64px',
+                                                    height: '64px',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    backgroundColor: box.iconBackgroundColor,
+                                                    borderRadius: '20px',
+                                                    marginBottom: '8px',
+                                                    color: box.iconColor,
+                                                }}
+                                                dangerouslySetInnerHTML={{ __html: box.iconSvg }}
+                                            />
+                                            <Button
+                                                isDestructive
+                                                variant="secondary"
+                                                onClick={() => updateBox(index, 'iconSvg', '')}
+                                            >
+                                                {__('Remove SVG', 'xgenious-ui-blocks')}
+                                            </Button>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <MediaUploadCheck>
+                                                <MediaUpload
+                                                    onSelect={(media) => {
+                                                        if (media.url) {
+                                                            fetch(media.url)
+                                                                .then((res) => res.text())
+                                                                .then((svgContent) => {
+                                                                    updateBox(index, 'iconSvg', svgContent);
+                                                                });
+                                                        }
+                                                    }}
+                                                    allowedTypes={['image/svg+xml', 'image']}
+                                                    render={({ open }) => (
+                                                        <Button variant="primary" onClick={open} style={{ marginBottom: '8px' }}>
+                                                            {__('Upload SVG', 'xgenious-ui-blocks')}
+                                                        </Button>
+                                                    )}
+                                                />
+                                            </MediaUploadCheck>
+                                            <p style={{ margin: '8px 0', fontSize: '12px', color: '#757575' }}>
+                                                {__('Or paste SVG code below:', 'xgenious-ui-blocks')}
+                                            </p>
+                                            <textarea
+                                                rows={4}
+                                                style={{ width: '100%', fontFamily: 'monospace', fontSize: '11px' }}
+                                                placeholder={__('Paste SVG code here...', 'xgenious-ui-blocks')}
+                                                onChange={(e) => {
+                                                    const val = e.target.value.trim();
+                                                    if (val.startsWith('<svg')) {
+                                                        updateBox(index, 'iconSvg', val);
+                                                    }
+                                                }}
+                                            />
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            <p>{__('Icon Background Color', 'xgenious-ui-blocks')}</p>
+                            <ColorPicker
+                                color={box.iconBackgroundColor}
+                                onChangeComplete={(value) =>
+                                    updateBox(index, 'iconBackgroundColor', value.hex)
+                                }
+                            />
+
+                            <p style={{ marginTop: '16px' }}>{__('Icon Color', 'xgenious-ui-blocks')}</p>
+                            <ColorPicker
+                                color={box.iconColor}
+                                onChangeComplete={(value) =>
+                                    updateBox(index, 'iconColor', value.hex)
+                                }
+                            />
+
+                            <div style={{ marginTop: '16px' }}>
+                                <Button
+                                    isDestructive
+                                    variant="secondary"
+                                    onClick={() => removeBox(index)}
+                                >
+                                    {__('Remove Box', 'xgenious-ui-blocks')}
+                                </Button>
+                            </div>
+                        </PanelBody>
+                    ))}
+                    <Button variant="primary" onClick={addBox} style={{ marginTop: '12px' }}>
+                        {__('Add Box', 'xgenious-ui-blocks')}
+                    </Button>
+                </PanelBody>
             </InspectorControls>
 
             <div {...blockProps}>
@@ -185,43 +307,28 @@ export default function Edit({ attributes, setAttributes }) {
                         <div className="info-boxes-heading">
                             <RichText
                                 tagName="h2"
-                                className="heading-line1"
-                                value={headingLine1}
-                                onChange={(value) => setAttributes({ headingLine1: value })}
-                                placeholder={__('Line 1...', 'xgenious-ui-blocks')}
-                                style={{ color: headingColor }}
-                            />
-                            <RichText
-                                tagName="h2"
-                                className="heading-line2"
-                                value={headingLine2}
-                                onChange={(value) => setAttributes({ headingLine2: value })}
-                                placeholder={__('Line 2...', 'xgenious-ui-blocks')}
+                                value={heading}
+                                onChange={(value) => setAttributes({ heading: value })}
+                                placeholder={__('Enter heading...', 'xgenious-ui-blocks')}
                                 style={{ color: headingColor }}
                             />
                         </div>
 
                         {/* Right Column - Boxes */}
-                        <div className="info-boxes-list">
+                        <div className="info-boxes-list" style={{ backgroundColor: boxBackgroundColor }}>
                             {boxes.map((box, index) => (
                                 <div
                                     key={index}
                                     className="info-box"
-                                    style={{ backgroundColor: boxBackgroundColor }}
                                 >
                                     <div className="info-box-content">
-                                        {/* Icon */}
                                         <div
                                             className="info-box-icon"
                                             style={{ backgroundColor: box.iconBackgroundColor }}
                                         >
-                                            <Dashicon
-                                                icon={box.icon}
-                                                style={{ color: box.iconColor }}
-                                            />
+                                            {renderIcon(box)}
                                         </div>
 
-                                        {/* Text Content */}
                                         <div className="info-box-text">
                                             <TextControl
                                                 className="box-title-input"

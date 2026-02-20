@@ -16,18 +16,20 @@
     .info-boxes-wrapper {
         display: grid;
         grid-template-columns: 1fr 2fr;
-        gap: 80px;
+        gap: 150px;
         align-items: start;
     }
 
     /* Left Column - Heading */
     .info-boxes-heading {
+        min-width: 450px;
+
         h2 {
             font-size: 48px;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 1.2;
             margin: 0;
-            font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+            font-family: var(--xg-font-primary, 'Inter', sans-serif);
         }
 
         .heading-line1,
@@ -40,19 +42,23 @@
     .info-boxes-list {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
     }
 
     /* Individual Info Box */
     .info-box {
-        border-radius: 12px;
         padding: 32px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        transition: background-color 0.3s ease;
+
+        &:last-child {
+            border-bottom: none;
+        }
 
         &:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            background-color: rgba(0, 0, 0, 0.02);
         }
     }
 
@@ -67,7 +73,7 @@
         flex-shrink: 0;
         width: 64px;
         height: 64px;
-        border-radius: 50%;
+        border-radius: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -78,6 +84,20 @@
             height: 28px;
             font-size: 28px;
         }
+
+        .info-box-svg-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: currentColor;
+            }
+        }
     }
 
     /* Text Content */
@@ -87,14 +107,15 @@
 
     .box-title {
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 1.4;
         margin: 0 0 8px 0;
-        font-family: var(--xg-font-heading, 'Poppins', sans-serif);
+        font-family: var(--xg-font-primary, 'Inter', sans-serif);
     }
 
     .box-description {
         font-size: 15px;
+        font-weight: 400;
         line-height: 1.6;
         margin: 0;
         color: rgba(26, 26, 26, 0.8);
@@ -103,7 +124,7 @@
     /* Responsive Design */
     @media (max-width: 1024px) {
         .info-boxes-wrapper {
-            gap: 60px;
+            gap: 80px;
         }
 
         .info-boxes-heading h2 {

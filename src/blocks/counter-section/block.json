@@ -53,7 +53,7 @@
         },
         "backgroundColor": {
             "type": "string",
-            "default": "#E8E9EB"
+            "default": "#EFEDF0"
         },
         "textColor": {
             "type": "string",
