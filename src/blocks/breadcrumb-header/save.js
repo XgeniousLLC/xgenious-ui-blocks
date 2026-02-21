@@ -15,6 +15,7 @@ export default function save({ attributes }) {
 		paddingTop,
 		paddingBottom,
 		imagePosition,
+		contentVerticalAlign,
 	} = attributes;
 
 	const blockProps = useBlockProps.save({
@@ -29,7 +30,7 @@ export default function save({ attributes }) {
 	return (
 		<div {...blockProps}>
 			<div className="xg-container">
-				<div className={`breadcrumb-header-wrapper image-${imagePosition}`}>
+				<div className={`breadcrumb-header-wrapper image-${imagePosition} content-${contentVerticalAlign}`}>
 					{/* Content Section */}
 					<div className="breadcrumb-content">
 						<RichText.Content

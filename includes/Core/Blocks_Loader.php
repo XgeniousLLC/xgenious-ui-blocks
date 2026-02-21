@@ -287,6 +287,13 @@ class Blocks_Loader {
                 'icon' => 'list-view',
                 'keywords' => ['faq', 'accordion', 'questions', 'answers', 'schema', 'seo'],
             ],
+            'cta-meeting' => [
+                'title' => __('CTA for Meeting', 'xgenious-ui-blocks'),
+                'description' => __('Call-to-action section for booking a meeting with background image and person photo', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'calendar-alt',
+                'keywords' => ['cta', 'meeting', 'consultation', 'booking', 'call to action'],
+            ],
         ];
 
         // Allow filtering of blocks

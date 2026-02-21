@@ -27,8 +27,9 @@
 		max-width: 600px;
 
 		.gallery-heading {
-			font-size: 48px;
-			font-weight: 700;
+			font-family: var(--xg-font-primary, 'Inter', sans-serif);
+			font-size: 42px;
+			font-weight: 600;
 			line-height: 1.2;
 			margin: 0;
 			color: #000000;
@@ -52,7 +53,9 @@
 		max-width: 500px;
 
 		.gallery-description {
+			font-family: var(--xg-font-primary, 'Inter', sans-serif);
 			font-size: 16px;
+			font-weight: 400;
 			line-height: 1.6;
 			margin: 0;
 			color: #666666;

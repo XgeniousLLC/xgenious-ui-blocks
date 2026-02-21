@@ -43,6 +43,7 @@ import './blocks/work-showcase';
 import './blocks/service-box-icon';
 import './blocks/template-grid';
 import './blocks/faq-accordion';
+import './blocks/cta-meeting';
 
 // Global editor configuration
 console.log('Xgenious UI Blocks - Editor loaded');

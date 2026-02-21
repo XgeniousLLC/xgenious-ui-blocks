@@ -1,0 +1,232 @@
+/**
+ * CTA for Meeting Block - Frontend Styles
+ */
+
+.xg-cta-meeting {
+    position: relative;
+
+    .cta-meeting-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 60px;
+        min-height: 320px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            pointer-events: none;
+        }
+    }
+
+    .cta-meeting-content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+        flex: 1;
+    }
+
+    .cta-meeting-heading {
+        font-family: var(--xg-font-primary, 'Inter', sans-serif);
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 0 0 16px 0;
+    }
+
+    .cta-meeting-subtitle {
+        font-family: var(--xg-font-primary, 'Inter', sans-serif);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin: 0 0 32px 0;
+        opacity: 0.85;
+    }
+
+    /* Button */
+    .cta-meeting-button-wrapper {
+        display: flex;
+    }
+
+    .cta-meeting-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-family: var(--xg-font-primary, 'Inter', sans-serif);
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+    }
+
+    .cta-btn-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    /* Person Image */
+    .cta-meeting-person {
+        position: relative;
+        z-index: 2;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .person-image-wrapper {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 2px dashed;
+        padding: 8px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .person-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+    }
+
+    /* Editor-specific placeholder */
+    .person-placeholder {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.6);
+        gap: 4px;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .dashicon {
+            font-size: 32px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+
+    .person-image-actions {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .person-image-wrapper:hover .person-image-actions {
+        opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .cta-meeting-card {
+            padding: 48px;
+        }
+
+        .cta-meeting-heading {
+            font-size: 34px;
+        }
+
+        .person-image-wrapper {
+            width: 180px;
+            height: 180px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .cta-meeting-card {
+            flex-direction: column;
+            padding: 40px 32px;
+            text-align: center;
+            gap: 32px;
+        }
+
+        .cta-meeting-content {
+            max-width: 100%;
+        }
+
+        .cta-meeting-heading {
+            font-size: 28px;
+        }
+
+        .cta-meeting-button-wrapper {
+            justify-content: center;
+        }
+
+        .person-image-wrapper {
+            width: 160px;
+            height: 160px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cta-meeting-card {
+            padding: 32px 24px;
+        }
+
+        .cta-meeting-heading {
+            font-size: 24px;
+        }
+
+        .cta-meeting-subtitle {
+            font-size: 14px;
+        }
+
+        .cta-meeting-button {
+            padding: 14px 28px;
+            font-size: 14px;
+        }
+
+        .person-image-wrapper {
+            width: 140px;
+            height: 140px;
+        }
+    }
+}

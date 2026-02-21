@@ -22,6 +22,19 @@
 		&.image-left {
 			flex-direction: row-reverse;
 		}
+
+		/* Content Vertical Alignment */
+		&.content-start {
+			align-items: flex-start;
+		}
+
+		&.content-center {
+			align-items: center;
+		}
+
+		&.content-end {
+			align-items: flex-end;
+		}
 	}
 
 	/* Content Section */
@@ -30,8 +43,9 @@
 		max-width: 600px;
 
 		.breadcrumb-heading {
+			font-family: var(--xg-font-primary, 'Inter', sans-serif);
 			font-size: 48px;
-			font-weight: 700;
+			font-weight: 600;
 			line-height: 1.2;
 			margin: 0 0 24px;
 			color: #ffffff;
@@ -47,6 +61,7 @@
 		}
 
 		.breadcrumb-description {
+			font-family: var(--xg-font-primary, 'Inter', sans-serif);
 			font-size: 18px;
 			line-height: 1.6;
 			margin: 0;

@@ -1,0 +1,106 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/cta-meeting",
+    "title": "CTA for Meeting",
+    "category": "xgenious-ui",
+    "icon": "calendar-alt",
+    "description": "Call-to-action section for booking a meeting with background image and person photo",
+    "keywords": ["cta", "meeting", "consultation", "booking", "call to action"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Ready to Build Your SaaS or Marketplace?"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "Book a free consultation — get a roadmap & estimate."
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Book a Free Consultation"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonOpenNewTab": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundImage": {
+            "type": "object",
+            "default": {
+                "id": null,
+                "url": "",
+                "alt": ""
+            }
+        },
+        "personImage": {
+            "type": "object",
+            "default": {
+                "id": null,
+                "url": "",
+                "alt": ""
+            }
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#1a1a2e"
+        },
+        "headingColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "subtitleColor": {
+            "type": "string",
+            "default": "#a0a0a0"
+        },
+        "buttonColor": {
+            "type": "string",
+            "default": "#FF7B6D"
+        },
+        "buttonTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "borderColor": {
+            "type": "string",
+            "default": "#a0a0a0"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 100
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 100
+        },
+        "sectionBackgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "Ready to Build Your SaaS or Marketplace?",
+            "subtitle": "Book a free consultation — get a roadmap & estimate."
+        }
+    }
+}

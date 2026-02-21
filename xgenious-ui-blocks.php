@@ -3,7 +3,7 @@
  * Plugin Name: Xgenious UI Blocks
  * Plugin URI: https://xgenious.com
  * Description: Modern Gutenberg blocks for Xgenious UI components with advanced styling and functionality
- * Version: 1.2.0
+ * Version: 1.4.0
  * Author: Xgenious
  * Author URI: https://xgenious.com
  * License: GPL-2.0+
@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Plugin constants.
-define('XGENIOUS_UI_BLOCKS_VERSION', '1.2.0');
+define('XGENIOUS_UI_BLOCKS_VERSION', '1.4.0');
 define('XGENIOUS_UI_BLOCKS_FILE', __FILE__);
 define('XGENIOUS_UI_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('XGENIOUS_UI_BLOCKS_URL', plugin_dir_url(__FILE__));

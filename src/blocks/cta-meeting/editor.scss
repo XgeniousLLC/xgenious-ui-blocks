@@ -1,0 +1,18 @@
+/**
+ * CTA for Meeting Block - Editor Styles
+ */
+
+.xg-cta-meeting {
+    .cta-meeting-heading,
+    .cta-meeting-subtitle {
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .cta-meeting-button {
+        &:focus {
+            outline: none;
+        }
+    }
+}

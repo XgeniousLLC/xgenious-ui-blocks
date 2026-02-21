@@ -9,8 +9,9 @@
 
 	/* Heading */
 	.impact-heading {
+		font-family: var(--xg-font-primary, 'Inter', sans-serif);
 		font-size: 64px;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: 1.1;
 		text-align: center;
 		margin: 0 0 60px;
@@ -55,16 +56,8 @@
 		position: relative;
 		background: #2d2d2d;
 		border-radius: 12px;
-		padding: 60px 30px;
+		padding: 30px 30px;
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-		@media (max-width: 768px) {
-			padding: 50px 25px;
-		}
-
-		@media (max-width: 480px) {
-			padding: 40px 20px;
-		}
 
 		&:hover {
 			transform: translateY(-5px);
@@ -72,36 +65,21 @@
 		}
 
 		.stat-index {
-			position: absolute;
-			top: 20px;
-			left: 30px;
+			position: initial;
 			font-size: 14px;
 			font-weight: 500;
 			color: #666666;
 			letter-spacing: 1px;
-
-			@media (max-width: 768px) {
-				top: 15px;
-				left: 25px;
-				font-size: 13px;
-			}
-
-			@media (max-width: 480px) {
-				top: 12px;
-				left: 20px;
-				font-size: 12px;
-			}
+			margin-bottom: 150px;
 		}
 
 		.stat-number {
+			font-family: var(--xg-font-primary, 'Inter', sans-serif);
 			font-size: 56px;
-			font-weight: 700;
+			font-weight: 600;
 			line-height: 1.1;
 			color: #ffffff;
-			margin-bottom: 12px;
-			display: flex;
-			align-items: baseline;
-			justify-content: center;
+			margin-bottom: 0;
 
 			@media (max-width: 1024px) {
 				font-size: 48px;
@@ -122,10 +100,11 @@
 		}
 
 		.stat-label {
+			font-family: var(--xg-font-primary, 'Inter', sans-serif);
 			font-size: 16px;
 			line-height: 1.4;
 			color: #999999;
-			text-align: center;
+			text-align: left;
 
 			@media (max-width: 768px) {
 				font-size: 15px;

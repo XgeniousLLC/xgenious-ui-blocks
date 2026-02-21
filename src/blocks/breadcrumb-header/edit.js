@@ -29,6 +29,7 @@ export default function Edit({ attributes, setAttributes }) {
 		paddingTop,
 		paddingBottom,
 		imagePosition,
+		contentVerticalAlign,
 	} = attributes;
 
 	const blockProps = useBlockProps({
@@ -53,6 +54,17 @@ export default function Edit({ attributes, setAttributes }) {
 							{ label: __('Left', 'xgenious-ui-blocks'), value: 'left' },
 						]}
 						onChange={(value) => setAttributes({ imagePosition: value })}
+					/>
+
+					<SelectControl
+						label={__('Content Vertical Alignment', 'xgenious-ui-blocks')}
+						value={contentVerticalAlign}
+						options={[
+							{ label: __('Top', 'xgenious-ui-blocks'), value: 'start' },
+							{ label: __('Middle', 'xgenious-ui-blocks'), value: 'center' },
+							{ label: __('Bottom', 'xgenious-ui-blocks'), value: 'end' },
+						]}
+						onChange={(value) => setAttributes({ contentVerticalAlign: value })}
 					/>
 
 					<RangeControl
@@ -147,7 +159,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 			<div {...blockProps}>
 				<div className="xg-container">
-					<div className={`breadcrumb-header-wrapper image-${imagePosition}`}>
+					<div className={`breadcrumb-header-wrapper image-${imagePosition} content-${contentVerticalAlign}`}>
 						{/* Content Section */}
 						<div className="breadcrumb-content">
 							<RichText

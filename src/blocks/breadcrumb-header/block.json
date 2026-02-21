@@ -46,6 +46,10 @@
 		"imagePosition": {
 			"type": "string",
 			"default": "right"
+		},
+		"contentVerticalAlign": {
+			"type": "string",
+			"default": "center"
 		}
 	},
 	"supports": {

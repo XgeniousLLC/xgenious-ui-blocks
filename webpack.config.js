@@ -22,6 +22,7 @@ module.exports = {
         'blocks/accordion/index': path.resolve(__dirname, 'src/blocks/accordion/index.js'),
         'blocks/tabs/index': path.resolve(__dirname, 'src/blocks/tabs/index.js'),
         'blocks/progress-bar/index': path.resolve(__dirname, 'src/blocks/progress-bar/index.js'),
+        'blocks/cta-meeting/index': path.resolve(__dirname, 'src/blocks/cta-meeting/index.js'),
     },
     output: {
         path: path.resolve(__dirname, 'build'),
