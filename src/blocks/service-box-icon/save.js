@@ -41,13 +41,13 @@ export default function save({ attributes }) {
 
 				{/* Services Grid */}
 				<div className={`services-grid columns-${columns}`}>
-					{services.map((service, index) => (
-						<div
-							key={index}
-							className="service-box"
-							style={{ backgroundColor: boxBackgroundColor }}
-						>
-							{service.iconType === 'custom' && service.iconImage?.url ? (
+					{services.map((service, index) => {
+						const hasUrl = service.url && service.url.trim() !== '';
+						const target = service.linkTarget === '_blank' ? '_blank' : '_self';
+						const rel = target === '_blank' ? 'noopener noreferrer' : undefined;
+
+						const icon =
+							service.iconType === 'custom' && service.iconImage?.url ? (
 								<img
 									src={service.iconImage.url}
 									alt={service.iconImage.alt || service.title}
@@ -58,17 +58,52 @@ export default function save({ attributes }) {
 									className={`dashicons dashicons-${service.icon} service-icon`}
 									style={{ color: iconColor }}
 								></span>
-							)}
+							);
 
-							<h3 className="service-title" style={{ color: titleColor }}>
-								{service.title}
-							</h3>
+						return (
+							<div
+								key={index}
+								className="service-box"
+								style={{ backgroundColor: boxBackgroundColor }}
+							>
+								{/* Icon — linked if URL is set */}
+								{hasUrl ? (
+									<a
+										href={service.url}
+										target={target}
+										rel={rel}
+										className="service-icon-link"
+										tabIndex="-1"
+										aria-hidden="true"
+									>
+										{icon}
+									</a>
+								) : (
+									icon
+								)}
 
-							<p className="service-description" style={{ color: textColor }}>
-								{service.description}
-							</p>
-						</div>
-					))}
+								{/* Title — linked if URL is set */}
+								<h3 className="service-title" style={{ color: titleColor }}>
+									{hasUrl ? (
+										<a
+											href={service.url}
+											target={target}
+											rel={rel}
+											style={{ color: titleColor }}
+										>
+											{service.title}
+										</a>
+									) : (
+										service.title
+									)}
+								</h3>
+
+								<p className="service-description" style={{ color: textColor }}>
+									{service.description}
+								</p>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 		</div>

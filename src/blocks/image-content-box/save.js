@@ -11,6 +11,7 @@ export default function save({ attributes }) {
 		description,
 		buttonText,
 		buttonUrl,
+		showButton,
 		showArrowButton,
 		imagePosition,
 		backgroundColor,
@@ -57,24 +58,26 @@ export default function save({ attributes }) {
 							style={{ color: descriptionColor }}
 						/>
 
-						<div className="content-box-buttons">
-							<a
-								href={buttonUrl}
-								className="content-box-button"
-								style={{ backgroundColor: buttonColor }}
-							>
-								{buttonText}
-							</a>
-							{showArrowButton && (
+						{showButton && (
+							<div className="content-box-buttons">
 								<a
 									href={buttonUrl}
-									className="content-box-arrow"
+									className="content-box-button"
 									style={{ backgroundColor: buttonColor }}
 								>
-									→
+									{buttonText}
 								</a>
-							)}
-						</div>
+								{showArrowButton && (
+									<a
+										href={buttonUrl}
+										className="content-box-arrow"
+										style={{ backgroundColor: buttonColor }}
+									>
+										→
+									</a>
+								)}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

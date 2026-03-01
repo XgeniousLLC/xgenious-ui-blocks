@@ -28,6 +28,7 @@ export default function Edit({ attributes, setAttributes }) {
 		description,
 		buttonText,
 		buttonUrl,
+		showButton,
 		showArrowButton,
 		imagePosition,
 		backgroundColor,
@@ -132,21 +133,30 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{/* Button Settings */}
 				<PanelBody title={__('Button Settings', 'xgenious-ui-blocks')} initialOpen={false}>
-					<TextControl
-						label={__('Button Text', 'xgenious-ui-blocks')}
-						value={buttonText}
-						onChange={(value) => setAttributes({ buttonText: value })}
-					/>
-					<p>{__('Button URL', 'xgenious-ui-blocks')}</p>
-					<URLInput
-						value={buttonUrl}
-						onChange={(value) => setAttributes({ buttonUrl: value })}
-					/>
 					<ToggleControl
-						label={__('Show Arrow Button', 'xgenious-ui-blocks')}
-						checked={showArrowButton}
-						onChange={(value) => setAttributes({ showArrowButton: value })}
+						label={__('Show Button', 'xgenious-ui-blocks')}
+						checked={showButton}
+						onChange={(value) => setAttributes({ showButton: value })}
 					/>
+					{showButton && (
+						<>
+							<TextControl
+								label={__('Button Text', 'xgenious-ui-blocks')}
+								value={buttonText}
+								onChange={(value) => setAttributes({ buttonText: value })}
+							/>
+							<p>{__('Button URL', 'xgenious-ui-blocks')}</p>
+							<URLInput
+								value={buttonUrl}
+								onChange={(value) => setAttributes({ buttonUrl: value })}
+							/>
+							<ToggleControl
+								label={__('Show Arrow Button', 'xgenious-ui-blocks')}
+								checked={showArrowButton}
+								onChange={(value) => setAttributes({ showArrowButton: value })}
+							/>
+						</>
+					)}
 				</PanelBody>
 
 				{/* Color Settings */}
@@ -212,6 +222,7 @@ export default function Edit({ attributes, setAttributes }) {
 								style={{ color: descriptionColor }}
 							/>
 
+							{showButton && (
 							<div className="content-box-buttons">
 								<a
 									href={buttonUrl}
@@ -230,6 +241,7 @@ export default function Edit({ attributes, setAttributes }) {
 									</a>
 								)}
 							</div>
+						)}
 						</div>
 					</div>
 				</div>

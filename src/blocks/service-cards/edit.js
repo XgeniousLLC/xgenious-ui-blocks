@@ -9,6 +9,9 @@ import {
 	RangeControl,
 	Button,
 	ColorPicker,
+	TextControl,
+	TextareaControl,
+	ToggleControl,
 	__experimentalText as Text,
 	__experimentalVStack as VStack,
 } from '@wordpress/components';
@@ -25,6 +28,8 @@ export default function Edit({ attributes, setAttributes }) {
 				image: { url: '', id: 0, alt: '' },
 				title: 'New Service',
 				description: 'Service description goes here...',
+				url: '',
+				linkTarget: '_self',
 			},
 		];
 		setAttributes({ services: newServices });
@@ -73,21 +78,119 @@ export default function Edit({ attributes, setAttributes }) {
 					</VStack>
 				</PanelBody>
 
-				<PanelBody title={__('Services', 'xgenious-ui-blocks')} initialOpen={false}>
-					{services.map((service, index) => (
-						<div key={index} style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid #ddd' }}>
-							<Text variant="label">
-								{__('Service', 'xgenious-ui-blocks')} #{index + 1}
-							</Text>
-							<Button isDestructive onClick={() => removeService(index)} style={{ marginTop: '8px' }}>
-								{__('Remove Service', 'xgenious-ui-blocks')}
-							</Button>
-						</div>
-					))}
-					<Button isPrimary onClick={addService}>
-						{__('Add Service', 'xgenious-ui-blocks')}
+				{services.map((service, index) => (
+				<PanelBody
+					key={index}
+					title={`${__('Service', 'xgenious-ui-blocks')} #${index + 1}${service.title ? `: ${service.title}` : ''}`}
+					initialOpen={false}
+				>
+					{/* Image upload */}
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={(media) =>
+								updateService(index, 'image', {
+									url: media.url,
+									id: media.id,
+									alt: media.alt || '',
+								})
+							}
+							allowedTypes={['image']}
+							value={service.image?.id}
+							render={({ open }) => (
+								<div style={{ marginBottom: '12px' }}>
+									<p style={{ marginBottom: '6px', fontWeight: '500' }}>
+										{__('Image', 'xgenious-ui-blocks')}
+									</p>
+									{service.image?.url ? (
+										<>
+											<img
+												src={service.image.url}
+												alt={service.image.alt}
+												style={{
+													width: '100%',
+													height: '80px',
+													objectFit: 'cover',
+													borderRadius: '6px',
+													marginBottom: '8px',
+													display: 'block',
+												}}
+											/>
+											<Button
+												variant="secondary"
+												onClick={open}
+												style={{ marginRight: '8px' }}
+											>
+												{__('Replace Image', 'xgenious-ui-blocks')}
+											</Button>
+											<Button
+												isDestructive
+												onClick={() =>
+													updateService(index, 'image', { url: '', id: 0, alt: '' })
+												}
+											>
+												{__('Remove', 'xgenious-ui-blocks')}
+											</Button>
+										</>
+									) : (
+										<Button variant="primary" onClick={open}>
+											{__('Upload Image', 'xgenious-ui-blocks')}
+										</Button>
+									)}
+								</div>
+							)}
+						/>
+					</MediaUploadCheck>
+
+					{/* Title */}
+					<TextControl
+						label={__('Title', 'xgenious-ui-blocks')}
+						value={service.title}
+						onChange={(value) => updateService(index, 'title', value)}
+					/>
+
+					{/* Description */}
+					<TextareaControl
+						label={__('Description', 'xgenious-ui-blocks')}
+						value={service.description}
+						onChange={(value) => updateService(index, 'description', value)}
+						rows={3}
+					/>
+
+					{/* URL */}
+					<TextControl
+						label={__('Link URL', 'xgenious-ui-blocks')}
+						value={service.url || ''}
+						onChange={(value) => updateService(index, 'url', value)}
+						placeholder="https://"
+						type="url"
+						help={__('Makes the card clickable', 'xgenious-ui-blocks')}
+					/>
+
+					{service.url && (
+						<ToggleControl
+							label={__('Open in new tab', 'xgenious-ui-blocks')}
+							checked={service.linkTarget === '_blank'}
+							onChange={(value) =>
+								updateService(index, 'linkTarget', value ? '_blank' : '_self')
+							}
+						/>
+					)}
+
+					<Button
+						isDestructive
+						variant="secondary"
+						onClick={() => removeService(index)}
+					>
+						{__('Remove Service', 'xgenious-ui-blocks')}
 					</Button>
 				</PanelBody>
+			))}
+
+			<PanelBody>
+				<Button variant="primary" onClick={addService}>
+					{__('Add Service', 'xgenious-ui-blocks')}
+				</Button>
+			</PanelBody>
 			</InspectorControls>
 
 			<div className="xg-service-cards">

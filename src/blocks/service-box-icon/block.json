@@ -24,68 +24,56 @@
 				{
 					"iconType": "dashicon",
 					"icon": "admin-customizer",
-					"iconImage": {
-						"id": null,
-						"url": "",
-						"alt": ""
-					},
+					"iconImage": { "id": null, "url": "", "alt": "" },
 					"title": "Webflow Custom Development",
-					"description": "Custom features, clean code, and pixel-Perfect results in Webflow."
+					"description": "Custom features, clean code, and pixel-Perfect results in Webflow.",
+					"url": "",
+					"linkTarget": "_self"
 				},
 				{
 					"iconType": "dashicon",
 					"icon": "admin-users",
-					"iconImage": {
-						"id": null,
-						"url": "",
-						"alt": ""
-					},
+					"iconImage": { "id": null, "url": "", "alt": "" },
 					"title": "Figma to Webflow Development Services",
-					"description": "From design to live site — fast, accurate, And code-free."
+					"description": "From design to live site — fast, accurate, And code-free.",
+					"url": "",
+					"linkTarget": "_self"
 				},
 				{
 					"iconType": "dashicon",
 					"icon": "cart",
-					"iconImage": {
-						"id": null,
-						"url": "",
-						"alt": ""
-					},
+					"iconImage": { "id": null, "url": "", "alt": "" },
 					"title": "Webflow E-commerce Development",
-					"description": "Sell smarter with a fully customized Webflow e-commerce solution."
+					"description": "Sell smarter with a fully customized Webflow e-commerce solution.",
+					"url": "",
+					"linkTarget": "_self"
 				},
 				{
 					"iconType": "dashicon",
 					"icon": "smartphone",
-					"iconImage": {
-						"id": null,
-						"url": "",
-						"alt": ""
-					},
+					"iconImage": { "id": null, "url": "", "alt": "" },
 					"title": "Webflow Mobile Apps Development",
-					"description": "Mobile app front-ends designed visually. Delivered fast."
+					"description": "Mobile app front-ends designed visually. Delivered fast.",
+					"url": "",
+					"linkTarget": "_self"
 				},
 				{
 					"iconType": "dashicon",
 					"icon": "admin-plugins",
-					"iconImage": {
-						"id": null,
-						"url": "",
-						"alt": ""
-					},
+					"iconImage": { "id": null, "url": "", "alt": "" },
 					"title": "Webflow Integration Solutions",
-					"description": "Custom Webflow integrations for CRM, Analytics, payments, and more."
+					"description": "Custom Webflow integrations for CRM, Analytics, payments, and more.",
+					"url": "",
+					"linkTarget": "_self"
 				},
 				{
 					"iconType": "dashicon",
 					"icon": "admin-tools",
-					"iconImage": {
-						"id": null,
-						"url": "",
-						"alt": ""
-					},
+					"iconImage": { "id": null, "url": "", "alt": "" },
 					"title": "Webflow Website Maintenance",
-					"description": "We handle the updates — so you can focus on your business."
+					"description": "We handle the updates — so you can focus on your business.",
+					"url": "",
+					"linkTarget": "_self"
 				}
 			]
 		},

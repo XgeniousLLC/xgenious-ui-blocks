@@ -17,4 +17,14 @@
 	.service-icon {
 		pointer-events: none;
 	}
+
+	/* Link badge shown in editor when a URL is set */
+	.service-link-badge {
+		display: inline-block;
+		margin-left: 6px;
+		font-size: 14px;
+		vertical-align: middle;
+		opacity: 0.6;
+		cursor: default;
+	}
 }

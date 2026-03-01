@@ -315,10 +315,26 @@ class Blocks_Loader {
 
             $block_path = XGENIOUS_UI_BLOCKS_PATH . 'build/blocks/' . $block_name;
 
-            // Register block if build file exists
-            if (file_exists($block_path . '/block.json')) {
-                register_block_type($block_path);
+            if (!file_exists($block_path . '/block.json')) {
+                continue;
             }
+
+            $args = [];
+
+            // Explicitly register render_callback for dynamic blocks (render.php).
+            // This ensures compatibility with WordPress 6.0 where block.json
+            // "render": "file:./render.php" is not yet supported (added in WP 6.1).
+            $render_file = $block_path . '/render.php';
+            if (file_exists($render_file)) {
+                $render_path = $render_file;
+                $args['render_callback'] = static function ( $attributes, $content, $block ) use ( $render_path ) {
+                    ob_start();
+                    include $render_path;
+                    return ob_get_clean();
+                };
+            }
+
+            register_block_type($block_path, $args);
         }
     }
 

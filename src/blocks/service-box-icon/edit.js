@@ -69,19 +69,20 @@ export default function Edit({ attributes, setAttributes }) {
 			iconImage: { id: null, url: '', alt: '' },
 			title: 'New Service',
 			description: 'Service description here.',
+			url: '',
+			linkTarget: '_self',
 		};
 		setAttributes({ services: [...services, newService] });
 	};
 
 	const removeService = (index) => {
-		const updatedServices = services.filter((_, i) => i !== index);
-		setAttributes({ services: updatedServices });
+		setAttributes({ services: services.filter((_, i) => i !== index) });
 	};
 
 	const updateService = (index, key, value) => {
-		const updatedServices = [...services];
-		updatedServices[index][key] = value;
-		setAttributes({ services: updatedServices });
+		const updated = [...services];
+		updated[index] = { ...updated[index], [key]: value };
+		setAttributes({ services: updated });
 	};
 
 	return (
@@ -96,7 +97,6 @@ export default function Edit({ attributes, setAttributes }) {
 						max={4}
 						step={1}
 					/>
-
 					<RangeControl
 						label={__('Padding Top (px)', 'xgenious-ui-blocks')}
 						value={paddingTop}
@@ -105,7 +105,6 @@ export default function Edit({ attributes, setAttributes }) {
 						max={200}
 						step={10}
 					/>
-
 					<RangeControl
 						label={__('Padding Bottom (px)', 'xgenious-ui-blocks')}
 						value={paddingBottom}
@@ -126,7 +125,6 @@ export default function Edit({ attributes, setAttributes }) {
 							onChangeComplete={(value) => setAttributes({ backgroundColor: value.hex })}
 						/>
 					</div>
-
 					<div style={{ marginBottom: '12px' }}>
 						<p style={{ marginBottom: '8px', fontWeight: '500' }}>
 							{__('Box Background', 'xgenious-ui-blocks')}
@@ -136,7 +134,6 @@ export default function Edit({ attributes, setAttributes }) {
 							onChangeComplete={(value) => setAttributes({ boxBackgroundColor: value.hex })}
 						/>
 					</div>
-
 					<div style={{ marginBottom: '12px' }}>
 						<p style={{ marginBottom: '8px', fontWeight: '500' }}>
 							{__('Title Color', 'xgenious-ui-blocks')}
@@ -146,7 +143,6 @@ export default function Edit({ attributes, setAttributes }) {
 							onChangeComplete={(value) => setAttributes({ titleColor: value.hex })}
 						/>
 					</div>
-
 					<div style={{ marginBottom: '12px' }}>
 						<p style={{ marginBottom: '8px', fontWeight: '500' }}>
 							{__('Text Color', 'xgenious-ui-blocks')}
@@ -156,7 +152,6 @@ export default function Edit({ attributes, setAttributes }) {
 							onChangeComplete={(value) => setAttributes({ textColor: value.hex })}
 						/>
 					</div>
-
 					<div>
 						<p style={{ marginBottom: '8px', fontWeight: '500' }}>
 							{__('Icon Color', 'xgenious-ui-blocks')}
@@ -216,7 +211,7 @@ export default function Edit({ attributes, setAttributes }) {
 															height: '60px',
 															objectFit: 'contain',
 															marginBottom: '8px',
-															display: 'block'
+															display: 'block',
 														}}
 													/>
 													<Button
@@ -229,11 +224,7 @@ export default function Edit({ attributes, setAttributes }) {
 													<Button
 														isDestructive
 														onClick={() =>
-															updateService(index, 'iconImage', {
-																id: null,
-																url: '',
-																alt: '',
-															})
+															updateService(index, 'iconImage', { id: null, url: '', alt: '' })
 														}
 													>
 														{__('Remove Icon', 'xgenious-ui-blocks')}
@@ -262,6 +253,26 @@ export default function Edit({ attributes, setAttributes }) {
 							onChange={(value) => updateService(index, 'description', value)}
 							help={__('Short description of the service', 'xgenious-ui-blocks')}
 						/>
+
+						{/* URL */}
+						<TextControl
+							label={__('Link URL', 'xgenious-ui-blocks')}
+							value={service.url}
+							onChange={(value) => updateService(index, 'url', value)}
+							placeholder="https://"
+							help={__('Makes the icon and title clickable', 'xgenious-ui-blocks')}
+							type="url"
+						/>
+
+						{service.url && (
+							<ToggleControl
+								label={__('Open in new tab', 'xgenious-ui-blocks')}
+								checked={service.linkTarget === '_blank'}
+								onChange={(value) =>
+									updateService(index, 'linkTarget', value ? '_blank' : '_self')
+								}
+							/>
+						)}
 
 						<div style={{ marginTop: '16px' }}>
 							<Button
@@ -301,6 +312,7 @@ export default function Edit({ attributes, setAttributes }) {
 								className="service-box"
 								style={{ backgroundColor: boxBackgroundColor }}
 							>
+								{/* Icon */}
 								{service.iconType === 'custom' && service.iconImage?.url ? (
 									<img
 										src={service.iconImage.url}
@@ -314,8 +326,14 @@ export default function Edit({ attributes, setAttributes }) {
 									></span>
 								)}
 
+								{/* Title — show link badge in editor when URL is set */}
 								<h3 className="service-title" style={{ color: titleColor }}>
 									{service.title}
+									{service.url && (
+										<span className="service-link-badge" title={service.url}>
+											&#x1F517;
+										</span>
+									)}
 								</h3>
 
 								<p className="service-description" style={{ color: textColor }}>

@@ -76,11 +76,11 @@
 		},
 		"cardTitleColor": {
 			"type": "string",
-			"default": "#000000"
+			"default": "#ffffff"
 		},
 		"cardSubtitleColor": {
 			"type": "string",
-			"default": "#666666"
+			"default": "#ffffff"
 		}
 	},
 	"supports": {
