@@ -16,6 +16,8 @@ import {
 	Button,
 	ColorPicker,
 	TextControl,
+	ToggleControl,
+	SelectControl,
 } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
@@ -29,6 +31,7 @@ export default function Edit({ attributes, setAttributes }) {
 		cardBackgroundColor,
 		paddingTop,
 		paddingBottom,
+		titleAlignment,
 	} = attributes;
 
 	const blockProps = useBlockProps({
@@ -45,6 +48,8 @@ export default function Edit({ attributes, setAttributes }) {
 			image: { id: null, url: '', alt: '' },
 			title: 'New Template',
 			subtitle: 'Template description here',
+			url: '',
+			linkTarget: '_self',
 		};
 		setAttributes({ templates: [...templates, newTemplate] });
 	};
@@ -64,6 +69,17 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title={__('Layout Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+					<SelectControl
+						label={__('Title Alignment', 'xgenious-ui-blocks')}
+						value={titleAlignment}
+						options={[
+							{ label: __('Left', 'xgenious-ui-blocks'), value: 'left' },
+							{ label: __('Center', 'xgenious-ui-blocks'), value: 'center' },
+							{ label: __('Right', 'xgenious-ui-blocks'), value: 'right' },
+						]}
+						onChange={(value) => setAttributes({ titleAlignment: value })}
+					/>
+
 					<RangeControl
 						label={__('Columns', 'xgenious-ui-blocks')}
 						value={columns}
@@ -210,6 +226,25 @@ export default function Edit({ attributes, setAttributes }) {
 							help={__('Brief description of the template', 'xgenious-ui-blocks')}
 						/>
 
+						<TextControl
+							label={__('Template URL', 'xgenious-ui-blocks')}
+							value={template.url || ''}
+							onChange={(value) => updateTemplate(index, 'url', value)}
+							placeholder="https://"
+							type="url"
+							help={__('Makes the card clickable', 'xgenious-ui-blocks')}
+						/>
+
+						{template.url && (
+							<ToggleControl
+								label={__('Open in new tab', 'xgenious-ui-blocks')}
+								checked={template.linkTarget === '_blank'}
+								onChange={(value) =>
+									updateTemplate(index, 'linkTarget', value ? '_blank' : '_self')
+								}
+							/>
+						)}
+
 						<div style={{ marginTop: '16px' }}>
 							<Button
 								isDestructive
@@ -238,6 +273,7 @@ export default function Edit({ attributes, setAttributes }) {
 						value={sectionTitle}
 						onChange={(value) => setAttributes({ sectionTitle: value })}
 						placeholder={__('Enter section title...', 'xgenious-ui-blocks')}
+						style={{ textAlign: titleAlignment }}
 					/>
 
 					{/* Templates Grid */}

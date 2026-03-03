@@ -28,7 +28,9 @@
 						"alt": ""
 					},
 					"title": "Archiflow",
-					"subtitle": "Home architecture Webflow Template"
+					"subtitle": "Home architecture Webflow Template",
+					"url": "",
+					"linkTarget": "_self"
 				},
 				{
 					"image": {
@@ -37,7 +39,9 @@
 						"alt": ""
 					},
 					"title": "Farmex",
-					"subtitle": "Handyman & Home services Marketplace"
+					"subtitle": "Handyman & Home services Marketplace",
+					"url": "",
+					"linkTarget": "_self"
 				},
 				{
 					"image": {
@@ -46,7 +50,9 @@
 						"alt": ""
 					},
 					"title": "Prohandy",
-					"subtitle": "Handyman & Home services Marketplace"
+					"subtitle": "Handyman & Home services Marketplace",
+					"url": "",
+					"linkTarget": "_self"
 				}
 			]
 		},
@@ -54,9 +60,13 @@
 			"type": "number",
 			"default": 3
 		},
+		"titleAlignment": {
+			"type": "string",
+			"default": "left"
+		},
 		"backgroundColor": {
 			"type": "string",
-			"default": "#F5F5F5"
+			"default": "#EFEDF0"
 		},
 		"titleColor": {
 			"type": "string",
@@ -68,7 +78,7 @@
 		},
 		"cardBackgroundColor": {
 			"type": "string",
-			"default": "#ffffff"
+			"default": "transparent"
 		},
 		"paddingTop": {
 			"type": "number",
