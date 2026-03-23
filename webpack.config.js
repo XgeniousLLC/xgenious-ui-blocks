@@ -23,6 +23,8 @@ module.exports = {
         'blocks/tabs/index': path.resolve(__dirname, 'src/blocks/tabs/index.js'),
         'blocks/progress-bar/index': path.resolve(__dirname, 'src/blocks/progress-bar/index.js'),
         'blocks/cta-meeting/index': path.resolve(__dirname, 'src/blocks/cta-meeting/index.js'),
+        'blocks/founder-vision/index': path.resolve(__dirname, 'src/blocks/founder-vision/index.js'),
+        'blocks/team-members/index': path.resolve(__dirname, 'src/blocks/team-members/index.js'),
     },
     output: {
         path: path.resolve(__dirname, 'build'),

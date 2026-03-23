@@ -1,0 +1,131 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/founder-vision",
+    "title": "Founder Vision",
+    "category": "xgenious-ui",
+    "icon": "admin-users",
+    "description": "Founder profile section with image, bio, and call-to-action button",
+    "keywords": ["founder", "vision", "about", "bio", "profile", "ceo"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "sectionTitle": {
+            "type": "string",
+            "default": "The Founder's Vision"
+        },
+        "founderName": {
+            "type": "string",
+            "default": "Sharifur Rahman"
+        },
+        "founderRole": {
+            "type": "string",
+            "default": "Founder & CEO, Xgenious"
+        },
+        "bio1": {
+            "type": "string",
+            "default": "\"I founded <span class=\"xg-highlight\">Xgenious</span> with a simple yet powerful mission: to transform the digital landscape one pixel at a time. What started as a passion for building reliable software systems has grown into a company that has empowered over <span class=\"xg-highlight\">12,000+ businesses</span> worldwide, helping them engineer their digital dreams into reality."
+        },
+        "bio2": {
+            "type": "string",
+            "default": "Beyond Xgenious, I also created <span class=\"xg-highlight\">Taskip</span> — a complete platform designed to help freelancers and agency owners seamlessly manage clients, schedules, payments, and projects all in one place."
+        },
+        "bio3": {
+            "type": "string",
+            "default": "My journey from developer to entrepreneur has been driven by one belief: your ideas deserve to become reality, and my expertise is the tool to build your digital future. Let's connect and create something amazing together.\""
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Let's Connect"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonOpenNewTab": {
+            "type": "boolean",
+            "default": false
+        },
+        "founderImage": {
+            "type": "object",
+            "default": {
+                "id": null,
+                "url": "",
+                "alt": ""
+            }
+        },
+        "backgroundImage": {
+            "type": "object",
+            "default": {
+                "id": null,
+                "url": "",
+                "alt": ""
+            }
+        },
+        "backgroundOverlay": {
+            "type": "number",
+            "default": 0
+        },
+        "overlayColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "sectionBg": {
+            "type": "string",
+            "default": "#eef0f3"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#1a1a2e"
+        },
+        "nameColor": {
+            "type": "string",
+            "default": "#1a1a2e"
+        },
+        "roleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#333333"
+        },
+        "highlightColor": {
+            "type": "string",
+            "default": "#FF7B6D"
+        },
+        "buttonColor": {
+            "type": "string",
+            "default": "#FF7B6D"
+        },
+        "buttonTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        }
+    },
+    "example": {
+        "attributes": {
+            "sectionTitle": "The Founder's Vision",
+            "founderName": "Sharifur Rahman",
+            "founderRole": "Founder & CEO, Xgenious"
+        }
+    }
+}

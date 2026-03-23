@@ -1,0 +1,223 @@
+/**
+ * Founder Vision Block - Frontend Styles
+ */
+
+.xg-founder-vision {
+    position: relative;
+
+    .xg-fv-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .xg-fv-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .xg-fv-section-title {
+        font-family: inherit;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+        margin: 0 0 60px 0;
+    }
+
+    .xg-fv-layout {
+        display: grid;
+        grid-template-columns: 45% 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    /* Image Column */
+    .xg-fv-image-col {
+        position: relative;
+    }
+
+    .xg-fv-image-wrap {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .xg-fv-image {
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+    }
+
+    .xg-fv-image-placeholder {
+        width: 100%;
+        height: 480px;
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        cursor: pointer;
+        border: 2px dashed rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.12);
+        }
+
+        .dashicons {
+            font-size: 48px;
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            margin: 0;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    /* Content Column */
+    .xg-fv-content-col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .xg-fv-name {
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 6px 0;
+    }
+
+    .xg-fv-role {
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 0 0 24px 0;
+    }
+
+    .xg-fv-bio {
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.7;
+        margin: 0 0 16px 0;
+
+        .xg-highlight {
+            color: var(--xg-fv-highlight, #FF7B6D);
+            font-weight: 500;
+        }
+    }
+
+    /* Button */
+    .xg-fv-button-wrap {
+        display: flex;
+        margin-top: 12px;
+    }
+
+    .xg-fv-btn-link {
+        align-items: center;
+        border-radius: 50px;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        gap: 10px;
+        height: 50px;
+        justify-content: center;
+        max-width: 180px;
+        padding: 8px 20px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+
+        &:hover {
+            opacity: 0.88;
+            transform: translateY(-2px);
+        }
+    }
+
+    /* Editor button display */
+    .xg-fv-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        padding: 0 20px;
+        border-radius: 50px 0 0 50px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .xg-fv-btn-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        border-radius: 50%;
+        flex-shrink: 0;
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .xg-fv-layout {
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .xg-fv-section-title {
+            font-size: 34px;
+        }
+
+        .xg-fv-image {
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .xg-fv-layout {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .xg-fv-section-title {
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+
+        .xg-fv-image {
+            height: 340px;
+        }
+
+        .xg-fv-name {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .xg-fv-section-title {
+            font-size: 24px;
+        }
+
+        .xg-fv-image {
+            height: 280px;
+        }
+    }
+}

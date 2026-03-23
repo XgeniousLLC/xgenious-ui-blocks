@@ -294,6 +294,20 @@ class Blocks_Loader {
                 'icon' => 'calendar-alt',
                 'keywords' => ['cta', 'meeting', 'consultation', 'booking', 'call to action'],
             ],
+            'founder-vision' => [
+                'title' => __('Founder Vision', 'xgenious-ui-blocks'),
+                'description' => __('Founder profile section with image, bio, and call-to-action button', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'admin-users',
+                'keywords' => ['founder', 'vision', 'about', 'bio', 'profile', 'ceo'],
+            ],
+            'team-members' => [
+                'title' => __('Team Members', 'xgenious-ui-blocks'),
+                'description' => __('Display a grid of team members with photo, name, and role', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'groups',
+                'keywords' => ['team', 'members', 'staff', 'people', 'grid'],
+            ],
         ];
 
         // Allow filtering of blocks

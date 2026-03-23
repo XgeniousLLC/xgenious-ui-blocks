@@ -44,6 +44,8 @@ import './blocks/service-box-icon';
 import './blocks/template-grid';
 import './blocks/faq-accordion';
 import './blocks/cta-meeting';
+import './blocks/founder-vision';
+import './blocks/team-members';
 
 // Global editor configuration
 console.log('Xgenious UI Blocks - Editor loaded');

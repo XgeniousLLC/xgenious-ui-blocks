@@ -1,0 +1,74 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/team-members",
+    "title": "Team Members",
+    "category": "xgenious-ui",
+    "icon": "groups",
+    "description": "Display a grid of team members with photo, name, and role",
+    "keywords": ["team", "members", "staff", "people", "grid"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "sectionTitle": {
+            "type": "string",
+            "default": "Brain Behind Xgenious"
+        },
+        "members": {
+            "type": "array",
+            "default": [
+                { "id": 1, "name": "Aysha Parvin", "role": "Business Development Manager", "image": { "id": null, "url": "", "alt": "" } },
+                { "id": 2, "name": "Kamrul Ibn Zaman", "role": "Project Manager", "image": { "id": null, "url": "", "alt": "" } },
+                { "id": 3, "name": "Mobarak Hossain", "role": "Frontend Developer", "image": { "id": null, "url": "", "alt": "" } },
+                { "id": 4, "name": "Rakibul Hasan", "role": "Backend Developer", "image": { "id": null, "url": "", "alt": "" } }
+            ]
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "titleAlign": {
+            "type": "string",
+            "default": "left"
+        },
+        "sectionBg": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#1a1a2e"
+        },
+        "nameColor": {
+            "type": "string",
+            "default": "#1a1a2e"
+        },
+        "roleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        }
+    },
+    "example": {
+        "attributes": {
+            "sectionTitle": "Brain Behind Xgenious"
+        }
+    }
+}
