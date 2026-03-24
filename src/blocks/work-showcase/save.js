@@ -34,9 +34,12 @@ export default function save({ attributes }) {
 		buttonTextColor,
 		cardTitleColor,
 		cardSubtitleColor,
+		fullWidth,
 	} = attributes;
 
-	const blockProps = useBlockProps.save();
+	const blockProps = useBlockProps.save({
+		className: `xg-work-showcase-wrap${fullWidth ? ' xg-full-width' : ''}`,
+	});
 
 	return (
 		<div {...blockProps}>

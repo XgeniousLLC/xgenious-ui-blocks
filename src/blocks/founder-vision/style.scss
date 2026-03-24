@@ -5,6 +5,16 @@
 .xg-founder-vision {
     position: relative;
 
+    /* Full width: section stretches edge to edge, content stays in container */
+    &.xg-fv-fullwidth {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+
     .xg-fv-overlay {
         position: absolute;
         inset: 0;
@@ -40,14 +50,17 @@
 
     .xg-fv-image-wrap {
         width: 100%;
-        border-radius: 12px;
+        border-radius: 15px;
         overflow: hidden;
         cursor: pointer;
+
+        img {
+            border-radius: 15px;
+        }
     }
 
     .xg-fv-image {
         width: 100%;
-        height: 480px;
         object-fit: cover;
         object-position: top center;
         display: block;

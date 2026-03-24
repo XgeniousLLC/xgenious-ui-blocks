@@ -64,6 +64,10 @@
 		"priceColor": {
 			"type": "string",
 			"default": "#ea7c69"
+		},
+		"fullWidth": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {

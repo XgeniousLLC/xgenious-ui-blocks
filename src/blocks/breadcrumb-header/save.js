@@ -16,10 +16,11 @@ export default function save({ attributes }) {
 		paddingBottom,
 		imagePosition,
 		contentVerticalAlign,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps.save({
-		className: 'xg-breadcrumb-header',
+		className: `xg-breadcrumb-header${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,

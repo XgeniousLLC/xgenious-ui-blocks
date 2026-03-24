@@ -16,10 +16,11 @@ export default function save({ attributes }) {
 		paddingTop,
 		paddingBottom,
 		titleAlignment,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps.save({
-		className: 'xg-template-grid',
+		className: `xg-template-grid${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,

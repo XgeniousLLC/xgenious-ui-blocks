@@ -50,6 +50,10 @@
 		"contentVerticalAlign": {
 			"type": "string",
 			"default": "center"
+		},
+		"fullWidth": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {

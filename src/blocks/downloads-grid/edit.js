@@ -30,9 +30,12 @@ export default function Edit({ attributes, setAttributes }) {
 		priceColor,
 		paginationActiveColor,
 		paginationColor,
+		fullWidth,
 	} = attributes;
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({
+		className: `xg-downloads-grid${fullWidth ? ' xg-full-width' : ''}`,
+	});
 
 	// Check if 'download' post type exists
 	const postTypeExists = useSelect((select) => {
@@ -44,6 +47,12 @@ export default function Edit({ attributes, setAttributes }) {
 		<div {...blockProps}>
 			<InspectorControls>
 				<PanelBody title={__('Layout Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+					<ToggleControl
+						label={__('Full Width Section', 'xgenious-ui-blocks')}
+						help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+						checked={fullWidth}
+						onChange={(value) => setAttributes({ fullWidth: value })}
+					/>
 					<RangeControl
 						label={__('Posts Per Page', 'xgenious-ui-blocks')}
 						value={postsPerPage}

@@ -81,6 +81,10 @@
 		"cardSubtitleColor": {
 			"type": "string",
 			"default": "#ffffff"
+		},
+		"fullWidth": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {

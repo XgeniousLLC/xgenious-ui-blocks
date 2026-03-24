@@ -75,6 +75,10 @@
         "grayscale": {
             "type": "boolean",
             "default": false
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
         }
     },
     "example": {

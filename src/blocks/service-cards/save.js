@@ -5,9 +5,11 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { sectionTitle, titleColor, columns, services, cardTitleColor, cardDescColor, cardBgColor } = attributes;
+	const { sectionTitle, titleColor, columns, services, cardTitleColor, cardDescColor, cardBgColor, fullWidth } = attributes;
 
-	const blockProps = useBlockProps.save();
+	const blockProps = useBlockProps.save({
+		className: `xg-service-cards-wrap${fullWidth ? ' xg-full-width' : ''}`,
+	});
 
 	return (
 		<div {...blockProps}>

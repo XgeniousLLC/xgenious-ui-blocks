@@ -16,10 +16,11 @@ export default function save({ attributes }) {
 		paddingTop,
 		paddingBottom,
 		enableSchema,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps.save({
-		className: 'xg-faq-accordion',
+		className: `xg-faq-accordion${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,

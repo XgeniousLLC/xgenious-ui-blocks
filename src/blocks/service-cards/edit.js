@@ -17,9 +17,11 @@ import {
 } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-	const { sectionTitle, titleColor, columns, services, cardTitleColor, cardDescColor, cardBgColor } = attributes;
+	const { sectionTitle, titleColor, columns, services, cardTitleColor, cardDescColor, cardBgColor, fullWidth } = attributes;
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({
+		className: `xg-service-cards-wrap${fullWidth ? ' xg-full-width' : ''}`,
+	});
 
 	const addService = () => {
 		const newServices = [
@@ -50,6 +52,12 @@ export default function Edit({ attributes, setAttributes }) {
 		<div {...blockProps}>
 			<InspectorControls>
 				<PanelBody title={__('Layout Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+					<ToggleControl
+						label={__('Full Width Section', 'xgenious-ui-blocks')}
+						help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+						checked={fullWidth}
+						onChange={(value) => setAttributes({ fullWidth: value })}
+					/>
 					<RangeControl
 						label={__('Columns', 'xgenious-ui-blocks')}
 						value={columns}

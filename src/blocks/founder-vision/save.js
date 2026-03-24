@@ -29,10 +29,11 @@ export default function save({ attributes }) {
         buttonTextColor,
         paddingTop,
         paddingBottom,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps.save({
-        className: 'xg-founder-vision',
+        className: `xg-founder-vision${fullWidth ? ' xg-fv-fullwidth' : ''}`,
         style: {
             backgroundColor: sectionBg,
             backgroundImage: backgroundImage?.url ? `url(${backgroundImage.url})` : undefined,

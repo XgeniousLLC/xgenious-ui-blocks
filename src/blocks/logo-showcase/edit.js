@@ -36,10 +36,11 @@ export default function Edit({ attributes, setAttributes }) {
         showTopBorder,
         showBottomBorder,
         grayscale,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps({
-        className: `xg-logo-showcase align-${contentAlignment}`,
+        className: `xg-logo-showcase align-${contentAlignment}${fullWidth ? ' xg-full-width' : ''}`,
         style: {
             backgroundColor,
             color: textColor,
@@ -80,6 +81,12 @@ export default function Edit({ attributes, setAttributes }) {
             <InspectorControls>
                 {/* Content Settings */}
                 <PanelBody title={__('Content Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+                    <ToggleControl
+                        label={__('Full Width Section', 'xgenious-ui-blocks')}
+                        help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+                        checked={fullWidth}
+                        onChange={(value) => setAttributes({ fullWidth: value })}
+                    />
                     <SelectControl
                         label={__('Content Alignment', 'xgenious-ui-blocks')}
                         value={contentAlignment}

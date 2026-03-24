@@ -15,10 +15,11 @@ export default function save({ attributes }) {
         accentColor,
         paddingTop,
         paddingBottom,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps.save({
-        className: `xg-service-grid columns-${columns}`,
+        className: `xg-service-grid columns-${columns}${fullWidth ? ' xg-full-width' : ''}`,
         style: {
             backgroundColor,
             color: textColor,

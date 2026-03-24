@@ -7,7 +7,7 @@ import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from 
 import { PanelBody, Button, RangeControl, ToggleControl, TextControl, ColorPicker } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-	const { logos, columns, logoHeight, showDividers, dividerColor, grayscaleEffect } = attributes;
+	const { logos, columns, logoHeight, showDividers, dividerColor, grayscaleEffect, fullWidth } = attributes;
 
 	const updateLogo = (index, field, value) => {
 		const newLogos = [...logos];
@@ -27,13 +27,19 @@ export default function Edit({ attributes, setAttributes }) {
 	};
 
 	const blockProps = useBlockProps({
-		className: `logo-grid-showcase ${grayscaleEffect ? 'grayscale-effect' : ''}`
+		className: `logo-grid-showcase${fullWidth ? ' xg-full-width' : ''} ${grayscaleEffect ? 'grayscale-effect' : ''}`
 	});
 
 	return (
 		<div {...blockProps}>
 			<InspectorControls>
 				<PanelBody title={__('Layout Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+					<ToggleControl
+						label={__('Full Width Section', 'xgenious-ui-blocks')}
+						help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+						checked={fullWidth}
+						onChange={(value) => setAttributes({ fullWidth: value })}
+					/>
 					<RangeControl
 						label={__('Columns', 'xgenious-ui-blocks')}
 						value={columns}

@@ -20,10 +20,11 @@ export default function save({ attributes }) {
         showTopBorder,
         showBottomBorder,
         grayscale,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps.save({
-        className: `xg-logo-showcase align-${contentAlignment}`,
+        className: `xg-logo-showcase align-${contentAlignment}${fullWidth ? ' xg-full-width' : ''}`,
         style: {
             backgroundColor,
             color: textColor,

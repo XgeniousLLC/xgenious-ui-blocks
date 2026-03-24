@@ -41,10 +41,11 @@ export default function Edit({ attributes, setAttributes }) {
         buttonStyle,
         showButton,
         animation,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps({
-        className: `xgenious-hero-section align-${contentAlignment} valign-${contentVerticalAlign}`,
+        className: `xgenious-hero-section align-${contentAlignment} valign-${contentVerticalAlign}${fullWidth ? ' xg-full-width' : ''}`,
         style: {
             minHeight: `${minHeight}px`,
             color: textColor,
@@ -69,6 +70,12 @@ export default function Edit({ attributes, setAttributes }) {
             <InspectorControls>
                 {/* Background Settings */}
                 <PanelBody title={__('Background Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+                    <ToggleControl
+                        label={__('Full Width Section', 'xgenious-ui-blocks')}
+                        help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+                        checked={fullWidth}
+                        onChange={(value) => setAttributes({ fullWidth: value })}
+                    />
                     <ToggleControl
                         label={__('Use Video Background', 'xgenious-ui-blocks')}
                         checked={useVideo}

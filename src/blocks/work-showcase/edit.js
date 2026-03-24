@@ -51,9 +51,12 @@ export default function Edit({ attributes, setAttributes }) {
 		buttonTextColor,
 		cardTitleColor,
 		cardSubtitleColor,
+		fullWidth,
 	} = attributes;
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({
+		className: `xg-work-showcase-wrap${fullWidth ? ' xg-full-width' : ''}`,
+	});
 
 	const addProject = () => {
 		setAttributes({
@@ -84,6 +87,12 @@ export default function Edit({ attributes, setAttributes }) {
 		<div {...blockProps}>
 			<InspectorControls>
 				<PanelBody title={__('Button Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+					<ToggleControl
+						label={__('Full Width Section', 'xgenious-ui-blocks')}
+						help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+						checked={fullWidth}
+						onChange={(value) => setAttributes({ fullWidth: value })}
+					/>
 					<ToggleControl
 						label={__('Show Button', 'xgenious-ui-blocks')}
 						checked={showButton}

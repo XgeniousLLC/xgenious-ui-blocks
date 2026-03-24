@@ -74,6 +74,10 @@
         "borderRadius": {
             "type": "number",
             "default": 24
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
         }
     },
     "example": {

@@ -16,10 +16,11 @@ export default function save({ attributes }) {
         paddingTop,
         paddingBottom,
         borderRadius,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps.save({
-        className: 'xg-counter-section',
+        className: `xg-counter-section${fullWidth ? ' xg-full-width' : ''}`,
         style: {
             paddingTop: `${paddingTop}px`,
             paddingBottom: `${paddingBottom}px`,

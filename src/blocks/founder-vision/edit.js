@@ -44,10 +44,11 @@ export default function Edit({ attributes, setAttributes }) {
         buttonTextColor,
         paddingTop,
         paddingBottom,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps({
-        className: 'xg-founder-vision',
+        className: `xg-founder-vision${fullWidth ? ' xg-fv-fullwidth' : ''}`,
         style: {
             backgroundColor: sectionBg,
             backgroundImage: backgroundImage?.url ? `url(${backgroundImage.url})` : undefined,
@@ -64,6 +65,12 @@ export default function Edit({ attributes, setAttributes }) {
         <>
             <InspectorControls>
                 <PanelBody title={__('Layout Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+                    <ToggleControl
+                        label={__('Full Width Section', 'xgenious-ui-blocks')}
+                        help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+                        checked={fullWidth}
+                        onChange={(value) => setAttributes({ fullWidth: value })}
+                    />
                     <RangeControl
                         label={__('Padding Top (px)', 'xgenious-ui-blocks')}
                         value={paddingTop}

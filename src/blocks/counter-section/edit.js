@@ -31,10 +31,11 @@ export default function Edit({ attributes, setAttributes }) {
         paddingTop,
         paddingBottom,
         borderRadius,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps({
-        className: 'xg-counter-section',
+        className: `xg-counter-section${fullWidth ? ' xg-full-width' : ''}`,
         style: {
             paddingTop: `${paddingTop}px`,
             paddingBottom: `${paddingBottom}px`,
@@ -69,6 +70,12 @@ export default function Edit({ attributes, setAttributes }) {
             <InspectorControls>
                 {/* Layout Settings */}
                 <PanelBody title={__('Layout Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+                    <ToggleControl
+                        label={__('Full Width Section', 'xgenious-ui-blocks')}
+                        help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+                        checked={fullWidth}
+                        onChange={(value) => setAttributes({ fullWidth: value })}
+                    />
                     <ToggleControl
                         label={__('Show Image', 'xgenious-ui-blocks')}
                         checked={showImage}

@@ -24,10 +24,11 @@ export default function save({ attributes }) {
         buttonStyle,
         showButton,
         animation,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps.save({
-        className: `xgenious-hero-section align-${contentAlignment} valign-${contentVerticalAlign} ${animation !== 'none' ? 'animate-on-scroll' : ''}`,
+        className: `xgenious-hero-section align-${contentAlignment} valign-${contentVerticalAlign} ${animation !== 'none' ? 'animate-on-scroll' : ''}${fullWidth ? ' xg-full-width' : ''}`,
         style: {
             minHeight: `${minHeight}px`,
             color: textColor,

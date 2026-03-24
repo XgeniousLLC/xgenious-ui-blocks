@@ -5,10 +5,10 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { logos, columns, logoHeight, showDividers, dividerColor, grayscaleEffect } = attributes;
+	const { logos, columns, logoHeight, showDividers, dividerColor, grayscaleEffect, fullWidth } = attributes;
 
 	const blockProps = useBlockProps.save({
-		className: `logo-grid-showcase ${grayscaleEffect ? 'grayscale-effect' : ''}`
+		className: `logo-grid-showcase${fullWidth ? ' xg-full-width' : ''} ${grayscaleEffect ? 'grayscale-effect' : ''}`
 	});
 
 	return (

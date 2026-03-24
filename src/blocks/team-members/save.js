@@ -16,10 +16,11 @@ export default function save({ attributes }) {
         roleColor,
         paddingTop,
         paddingBottom,
+        fullWidth,
     } = attributes;
 
     const blockProps = useBlockProps.save({
-        className: 'xg-team-members',
+        className: `xg-team-members${fullWidth ? ' xg-full-width' : ''}`,
         style: {
             backgroundColor: sectionBg,
             paddingTop: `${paddingTop}px`,

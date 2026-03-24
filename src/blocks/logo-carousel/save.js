@@ -13,10 +13,11 @@ export default function save({ attributes }) {
 		paddingTop,
 		paddingBottom,
 		grayscale,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps.save({
-		className: 'xg-logo-carousel',
+		className: `xg-logo-carousel${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,

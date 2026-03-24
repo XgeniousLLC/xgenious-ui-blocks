@@ -16,10 +16,11 @@ export default function save({ attributes }) {
 		descriptionColor,
 		paddingTop,
 		paddingBottom,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps.save({
-		className: 'xg-photo-gallery',
+		className: `xg-photo-gallery${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,

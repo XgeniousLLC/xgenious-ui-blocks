@@ -79,6 +79,10 @@
 		"enableSchema": {
 			"type": "boolean",
 			"default": true
+		},
+		"fullWidth": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"editorScript": "file:./index.js",

@@ -16,10 +16,11 @@ export default function save({ attributes }) {
 		iconColor,
 		paddingTop,
 		paddingBottom,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps.save({
-		className: 'xg-service-box-icon',
+		className: `xg-service-box-icon${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,

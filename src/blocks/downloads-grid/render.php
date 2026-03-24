@@ -28,7 +28,9 @@ $pagination_active_color = isset($attributes['paginationActiveColor']) ? $attrib
 $pagination_color = isset($attributes['paginationColor']) ? $attributes['paginationColor'] : '#999999';
 $show_price = isset($attributes['showPrice']) ? $attributes['showPrice'] : true;
 $show_purchase_button = isset($attributes['showPurchaseButton']) ? $attributes['showPurchaseButton'] : false;
-$price_color = isset($attributes['priceColor']) ? $attributes['priceColor'] : '#ea7c69';
+$price_color = isset(\$attributes['priceColor']) ? \$attributes['priceColor'] : '#ea7c69';
+\$full_width = isset(\$attributes['fullWidth']) ? \$attributes['fullWidth'] : false;
+\$wrapper_class = 'xg-downloads-grid' . (\$full_width ? ' xg-full-width' : '');
 
 // Check if Easy Digital Downloads is active
 $edd_active = function_exists('edd_get_download_price');
@@ -36,7 +38,7 @@ $edd_active = function_exists('edd_get_download_price');
 // Check if download post type exists
 if (!post_type_exists('download')) {
 	?>
-	<div class="xg-downloads-grid">
+	<div class="<?php echo esc_attr($wrapper_class); ?>">
 		<div class="downloads-empty" style="padding: 60px 20px; text-align: center; background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px;">
 			<p style="margin: 0; color: #856404; font-size: 16px;">
 				<strong>⚠️ Easy Digital Downloads Required</strong><br>
@@ -110,7 +112,7 @@ $current_url = remove_query_arg('paged', $current_url);
 
 ?>
 
-<div id="<?php echo esc_attr($block_id); ?>" class="xg-downloads-grid">
+<div id="<?php echo esc_attr($block_id); ?>" class="<?php echo esc_attr($wrapper_class); ?>">
 
 	<?php if ($show_filters && !empty($categories) && !is_wp_error($categories)) : ?>
 		<div class="downloads-filters">

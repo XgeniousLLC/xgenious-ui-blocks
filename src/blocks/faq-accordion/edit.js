@@ -30,10 +30,11 @@ export default function Edit({ attributes, setAttributes }) {
 		paddingTop,
 		paddingBottom,
 		enableSchema,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps({
-		className: 'xg-faq-accordion',
+		className: `xg-faq-accordion${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,
@@ -73,6 +74,12 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title={__('Layout Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+					<ToggleControl
+						label={__('Full Width Section', 'xgenious-ui-blocks')}
+						help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+						checked={fullWidth}
+						onChange={(value) => setAttributes({ fullWidth: value })}
+					/>
 					<RangeControl
 						label={__('Padding Top (px)', 'xgenious-ui-blocks')}
 						value={paddingTop}

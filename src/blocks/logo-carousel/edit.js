@@ -16,10 +16,11 @@ export default function Edit({ attributes, setAttributes }) {
 		paddingBottom,
 		fadeWidth,
 		grayscale,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps({
-		className: 'xg-logo-carousel',
+		className: `xg-logo-carousel${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,
@@ -56,6 +57,12 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				{/* Logo Settings */}
 				<PanelBody title={__('Logo Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+					<ToggleControl
+						label={__('Full Width Section', 'xgenious-ui-blocks')}
+						help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+						checked={fullWidth}
+						onChange={(value) => setAttributes({ fullWidth: value })}
+					/>
 					<RangeControl
 						label={__('Logo Height (px)', 'xgenious-ui-blocks')}
 						value={logoHeight}

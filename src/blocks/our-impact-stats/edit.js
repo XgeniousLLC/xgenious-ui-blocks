@@ -14,6 +14,7 @@ import {
 	Button,
 	ColorPicker,
 	TextControl,
+	ToggleControl,
 } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
@@ -30,10 +31,11 @@ export default function Edit({ attributes, setAttributes }) {
 		gap,
 		paddingTop,
 		paddingBottom,
+		fullWidth,
 	} = attributes;
 
 	const blockProps = useBlockProps({
-		className: 'xg-impact-stats',
+		className: `xg-impact-stats${fullWidth ? ' xg-full-width' : ''}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${paddingTop}px`,
@@ -71,6 +73,12 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				{/* Layout Settings */}
 				<PanelBody title={__('Layout Settings', 'xgenious-ui-blocks')} initialOpen={true}>
+					<ToggleControl
+						label={__('Full Width Section', 'xgenious-ui-blocks')}
+						help={__('Section stretches full width; content stays in container.', 'xgenious-ui-blocks')}
+						checked={fullWidth}
+						onChange={(value) => setAttributes({ fullWidth: value })}
+					/>
 					<RangeControl
 						label={__('Columns', 'xgenious-ui-blocks')}
 						value={columns}
