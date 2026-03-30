@@ -219,7 +219,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<div
 						className="stats-grid"
 						style={{
-							gridTemplateColumns: `repeat(${columns}, 1fr)`,
+							'--xg-columns': columns,
 							gap: `${gap}px`,
 						}}
 					>

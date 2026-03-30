@@ -45,7 +45,7 @@ export default function save({ attributes }) {
 				<div
 					className="stats-grid"
 					style={{
-						gridTemplateColumns: `repeat(${columns}, 1fr)`,
+						'--xg-columns': columns,
 						gap: `${gap}px`,
 					}}
 				>
