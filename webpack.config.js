@@ -1,8 +1,24 @@
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const existingPlugins = defaultConfig.plugins || [];
 
 module.exports = {
     ...defaultConfig,
+    plugins: [
+        ...existingPlugins,
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/blocks'),
+                    to: path.resolve(__dirname, 'build/blocks'),
+                    globOptions: { ignore: ['**/*.js', '**/*.scss', '**/*.css'] },
+                    noErrorOnMissing: true,
+                },
+            ],
+        }),
+    ],
     entry: {
         // Main editor entry
         'editor': path.resolve(__dirname, 'src/editor.js'),
@@ -25,6 +41,7 @@ module.exports = {
         'blocks/cta-meeting/index': path.resolve(__dirname, 'src/blocks/cta-meeting/index.js'),
         'blocks/founder-vision/index': path.resolve(__dirname, 'src/blocks/founder-vision/index.js'),
         'blocks/team-members/index': path.resolve(__dirname, 'src/blocks/team-members/index.js'),
+        'blocks/expertise-contact/index': path.resolve(__dirname, 'src/blocks/expertise-contact/index.js'),
     },
     output: {
         path: path.resolve(__dirname, 'build'),

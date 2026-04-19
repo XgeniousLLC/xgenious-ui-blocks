@@ -46,6 +46,7 @@ import './blocks/faq-accordion';
 import './blocks/cta-meeting';
 import './blocks/founder-vision';
 import './blocks/team-members';
+import './blocks/expertise-contact';
 
 // Global editor configuration
 console.log('Xgenious UI Blocks - Editor loaded');

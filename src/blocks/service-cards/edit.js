@@ -17,7 +17,7 @@ import {
 } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-	const { sectionTitle, titleColor, columns, services, cardTitleColor, cardDescColor, cardBgColor, fullWidth } = attributes;
+	const { sectionTitle, sectionSubtitle, titleColor, subtitleColor, columns, services, cardTitleColor, cardDescColor, cardBgColor, fullWidth } = attributes;
 
 	const blockProps = useBlockProps({
 		className: `xg-service-cards-wrap${fullWidth ? ' xg-full-width' : ''}`,
@@ -71,6 +71,10 @@ export default function Edit({ attributes, setAttributes }) {
 					<VStack spacing={3}>
 						<Text variant="label">{__('Section Title Color', 'xgenious-ui-blocks')}</Text>
 						<ColorPicker color={titleColor} onChange={(value) => setAttributes({ titleColor: value })} />
+					</VStack>
+					<VStack spacing={3}>
+						<Text variant="label">{__('Section Subtitle Color', 'xgenious-ui-blocks')}</Text>
+						<ColorPicker color={subtitleColor} onChange={(value) => setAttributes({ subtitleColor: value })} />
 					</VStack>
 					<VStack spacing={3}>
 						<Text variant="label">{__('Card Title Color', 'xgenious-ui-blocks')}</Text>
@@ -210,6 +214,15 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ sectionTitle: value })}
 						placeholder={__('Enter section title...', 'xgenious-ui-blocks')}
 						style={{ color: titleColor }}
+					/>
+
+					<RichText
+						tagName="p"
+						className="section-subtitle"
+						value={sectionSubtitle}
+						onChange={(value) => setAttributes({ sectionSubtitle: value })}
+						placeholder={__('Enter section description... (optional)', 'xgenious-ui-blocks')}
+						style={{ color: subtitleColor }}
 					/>
 
 					<div className={`services-grid columns-${columns}`}>

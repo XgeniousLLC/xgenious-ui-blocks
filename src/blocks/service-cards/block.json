@@ -13,9 +13,17 @@
 			"type": "string",
 			"default": "Web design & development For all touchpoints"
 		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": ""
+		},
 		"titleColor": {
 			"type": "string",
 			"default": "#000000"
+		},
+		"subtitleColor": {
+			"type": "string",
+			"default": "#666666"
 		},
 		"columns": {
 			"type": "number",

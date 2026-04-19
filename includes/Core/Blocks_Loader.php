@@ -48,7 +48,11 @@ class Blocks_Loader {
      */
     private function __construct() {
         $this->register_blocks();
-        add_action('init', [$this, 'register_block_types']);
+        if ( did_action('init') || doing_action('init') ) {
+            $this->register_block_types();
+        } else {
+            add_action('init', [$this, 'register_block_types']);
+        }
     }
 
     /**
@@ -307,6 +311,13 @@ class Blocks_Loader {
                 'category' => 'xgenious-ui',
                 'icon' => 'groups',
                 'keywords' => ['team', 'members', 'staff', 'people', 'grid'],
+            ],
+            'expertise-contact' => [
+                'title' => __('Expertise Contact', 'xgenious-ui-blocks'),
+                'description' => __('Two-column section with heading, feature list and shortcode-powered contact form', 'xgenious-ui-blocks'),
+                'category' => 'xgenious-ui',
+                'icon' => 'email-alt',
+                'keywords' => ['contact', 'form', 'expertise', 'features', 'shortcode'],
             ],
         ];
 

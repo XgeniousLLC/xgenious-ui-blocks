@@ -1,0 +1,137 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "xgenious-ui-blocks/expertise-contact",
+    "title": "Expertise Contact",
+    "category": "xgenious-ui",
+    "icon": "email-alt",
+    "description": "Two-column section with heading, feature list on left and shortcode-powered contact form on right",
+    "keywords": ["contact", "form", "expertise", "features", "shortcode"],
+    "textdomain": "xgenious-ui-blocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./index.css",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Let Our Expertise Help Redefine Your Business!"
+        },
+        "description": {
+            "type": "string",
+            "default": "Don't let understaffing hold you back. Maximize your team's performance and reach your business goals with the best IT Staff."
+        },
+        "featureItems": {
+            "type": "array",
+            "default": [
+                { "text": "Expert teams of dedicated software developers with customized strategies" },
+                { "text": "Our skilled team uses trusted technology for maximum impact" },
+                { "text": "Implement rigorous protocols on high-security and transparency" },
+                { "text": "Offer scalable solutions that adapt to your changing requirements" },
+                { "text": "Provide a cost-efficient model that maximizes productivity" }
+            ]
+        },
+        "formTitle": {
+            "type": "string",
+            "default": "Your Contact information"
+        },
+        "formShortcode": {
+            "type": "string",
+            "default": ""
+        },
+        "showButton": {
+            "type": "boolean",
+            "default": true
+        },
+        "showCalendly": {
+            "type": "boolean",
+            "default": true
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Hire The Best Team"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonOpenNewTab": {
+            "type": "boolean",
+            "default": false
+        },
+        "calendlyText": {
+            "type": "string",
+            "default": "Book Via Calendly"
+        },
+        "calendlyUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "sectionBackgroundColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "cardBackgroundColor": {
+            "type": "string",
+            "default": "#1e1d33"
+        },
+        "headingColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#cccccc"
+        },
+        "featureTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "featureIconColor": {
+            "type": "string",
+            "default": "#6c63ff"
+        },
+        "formTitleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "buttonColor": {
+            "type": "string",
+            "default": "#6c63ff"
+        },
+        "buttonTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "calendlyColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 100
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 100
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "heading": "Let Our Expertise Help Redefine Your Business!",
+            "description": "Don't let understaffing hold you back. Maximize your team's performance and reach your business goals with the best IT Staff."
+        }
+    }
+}

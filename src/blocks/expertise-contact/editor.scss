@@ -1,0 +1,40 @@
+/**
+ * Expertise Contact Block - Editor Styles
+ */
+
+.xg-expertise-contact {
+	.expertise-shortcode-preview {
+		background: rgba(255, 255, 255, 0.05);
+		border: 2px dashed rgba(255, 255, 255, 0.2);
+		border-radius: 10px;
+		padding: 20px;
+		min-height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.shortcode-display {
+			font-family: monospace;
+			font-size: 13px;
+			color: #a0d4ff;
+			margin: 0;
+			text-align: center;
+			word-break: break-all;
+		}
+
+		.shortcode-placeholder {
+			font-size: 13px;
+			color: rgba(255, 255, 255, 0.4);
+			margin: 0;
+			text-align: center;
+		}
+	}
+
+	.expertise-cta-button {
+		display: inline-block;
+	}
+
+	.expertise-calendly-link {
+		display: inline-block;
+	}
+}

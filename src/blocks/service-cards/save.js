@@ -5,7 +5,7 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { sectionTitle, titleColor, columns, services, cardTitleColor, cardDescColor, cardBgColor, fullWidth } = attributes;
+	const { sectionTitle, sectionSubtitle, titleColor, subtitleColor, columns, services, cardTitleColor, cardDescColor, cardBgColor, fullWidth } = attributes;
 
 	const blockProps = useBlockProps.save({
 		className: `xg-service-cards-wrap${fullWidth ? ' xg-full-width' : ''}`,
@@ -21,6 +21,15 @@ export default function save({ attributes }) {
 							className="section-title"
 							value={sectionTitle}
 							style={{ color: titleColor }}
+						/>
+					)}
+
+					{sectionSubtitle && (
+						<RichText.Content
+							tagName="p"
+							className="section-subtitle"
+							value={sectionSubtitle}
+							style={{ color: subtitleColor }}
 						/>
 					)}
 
